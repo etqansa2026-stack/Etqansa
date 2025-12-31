@@ -51,18 +51,7 @@ interface Option {
       type: "number",
       placeholder: "",
     },
-    {
-      value: "mission_in_about",
-      label: "Mission In About",
-      type: "textarea",
-      placeholder: "",
-    },
-    {
-      value: "vision_in_about",
-      label: "Vision In About",
-      type: "textarea",
-      placeholder: "",
-    },
+
   ];
   
 function EditSettingForm({ setting, action }: prop) {

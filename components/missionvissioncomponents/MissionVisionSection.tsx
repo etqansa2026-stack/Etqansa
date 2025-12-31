@@ -1,5 +1,6 @@
 import {  FiTarget } from "react-icons/fi";
 import { FaRegEye } from "react-icons/fa";
+import { ScrollText } from "lucide-react";
 
 export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
   const sections = [
@@ -15,7 +16,7 @@ export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
       desc: isAr
         ? "تأهيل المشاركين عبر برامج تدريبية متكاملة تركز على المهارات المهنية والحياتية، وتنمية القدرات الشخصية والسلوكية، وربط التدريب باحتياجات سوق العمل وتعزيز الاعتماد على الذات والانخراط الإيجابي في المجتمع"
         : "Preparing participants through integrated training programs focusing on professional and life skills, developing personal and behavioral capabilities, linking training to labor market needs and promoting self-reliance and positive community engagement",
-      icon: FiTarget,
+      icon: ScrollText,
     },
   ];
 

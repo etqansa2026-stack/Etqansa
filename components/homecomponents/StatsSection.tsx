@@ -40,7 +40,7 @@ export default function StatsSection({ stats }: { stats: Stat }) {
 
   const numbers = [
     {
-      label: locale === "ar" ? "طالب" : "Student",
+      label: locale === "ar" ? "متدرب" : "Trainee",
       value: stats.number_of_students,
     },
     {
@@ -48,7 +48,7 @@ export default function StatsSection({ stats }: { stats: Stat }) {
       value: stats.number_of_programs,
     },
     {
-      label: locale === "ar" ? "مدرس" : "Instructor",
+      label: locale === "ar" ? "مدرب" : "Trainer",
       value: stats.number_of_instructors,
     },
   ];
