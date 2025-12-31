@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ar" suppressHydrationWarning>
       <body className="antialiased bg-white text-black">
         <NextAuthProviders>
           <NextIntlClientProvider>
          
-              <FontSwitcher locale={"en"}>{children}</FontSwitcher>
+              <FontSwitcher locale={"ar"}>{children}</FontSwitcher>
                  <Toaster
             position="bottom-right"
             richColors
