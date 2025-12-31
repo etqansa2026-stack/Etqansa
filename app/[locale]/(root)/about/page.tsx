@@ -6,6 +6,7 @@ import AboutInitiative from "@/components/aboutcomponents/AboutInitiative"
 import TechnicalTeam from "@/components/aboutcomponents/TechnicalTeam"
 import {getNonFounderMembersCount} from "@/app/server/our_team/services"
 import {getPartnersByLocale} from "@/app/server/partners/services"
+import TargetAudience from "@/components/aboutcomponents/TargetAudience"
 
 type Locale = "en" | "ar"
 
@@ -24,6 +25,7 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
       <InitiativePartners isAr={isAr} partners={partners}/>
       <ManagementTeam isAr={isAr} />
                   {isTechnicalTeam&&<TechnicalTeam isAr={isAr} />}
+                  <TargetAudience  isAr={isAr}/>
 
     </div>
   )

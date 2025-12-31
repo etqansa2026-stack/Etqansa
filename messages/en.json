@@ -13,5 +13,8 @@
     "ProgramsSection": {
     "title": "Our Programs",
     "button": "Explore Program"
+  },
+        "Buttons": {
+    "details": "More Details"
   }
 }

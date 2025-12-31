@@ -1,14 +1,21 @@
-import { Button } from "@/components/ui/button";
+import Button2 from "../ui/Button2";
 import { translatedProgram } from "@/types";
 import { FaClock, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
-import Button2 from "../ui/Button2";
+  import { useTranslations } from "next-intl";
+
+interface ProgramCardProps {
+  program: translatedProgram;
+}
+
 
 interface ProgramCardProps {
   program: translatedProgram;
 }
 
 export default function ProgramCard({ program }: ProgramCardProps) {
+      const t = useTranslations("Buttons");
+
   return (
     <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition duration-300 flex flex-col">
       
@@ -48,7 +55,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         <div className="mt-auto">
           <Link href={`/programs/life-programs/${program.slug}`}>
             <Button2 className="w-full">
-              View Details
+              {t("details")}   
             </Button2>
           </Link>
         </div>

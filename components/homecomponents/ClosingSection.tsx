@@ -10,16 +10,16 @@ export default function ClosingSection({ locale }: ClosingSectionProps) {
       title: "Closing Statement",
       paragraphs: [
         "The Itqan Initiative is not merely a training program; it is a national development project that invests in people and believes that skill-building is the true path to nation-building.",
-        "All content is carefully prepared after obtaining approvals and signing official agreements with participating entities, serving as a concise guide for what can be presented on the platform.",
+        "In a manner that meets the expectations of dedicated and committed stakeholders, and works to bridge the gap between skills-based training and theoretical education—addressing what the labor market in the Kingdom of Saudi Arabia currently needs.",
         "A national development program that invests in intellectual capital. And God grants success."
       ]
     },
     ar: {
-      title: "الختام",
+      title: "الرسالة الختامية",
       paragraphs: [
         "مبادرة إتقان ليست مجرد برنامج تدريبي؛ بل هي مشروع وطني يركز على الاستثمار في الإنسان ويؤمن أن بناء المهارات هو الطريق الحقيقي لبناء الأمة.",
-        "يتم إعداد جميع المحتويات بعناية بعد الحصول على الموافقات وتوقيع الاتفاقيات الرسمية مع الجهات المشاركة، لتكون دليلًا مختصرًا لما يمكن عرضه على المنصة.",
-        "برنامج وطني يركز على الاستثمار في رأس المال الفكري. وتوفيق الله حليفنا."
+        "وبالشكل الذي يرضاه المخلصون الأوفياء، ويعمل على سد الثغرة بين التدريب المهاري والتدريب النظري وهذا الذي يحتاجة سوق العمل في المملكة العربية السعودية هذه الأيام",
+        "و يعتبر برنامج وطني يركز على الاستثمار في رأس المال الفكري. وتوفيق الله حليفنا."
       ]
     }
   }

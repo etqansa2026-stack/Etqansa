@@ -16,8 +16,7 @@ export const saudiCitiesEn = [
   { label: "Taif", value: "Taif" },
   { label: "Yanbu", value: "Yanbu" },
   { label: "Buraidah", value: "Buraidah" },
-  { label: "Al Hofuf", value: "Al Hofuf" },
-  { label: "Al Khobar", value: "Al Khobar" },
+  { label: "Al Ehsaa", value: "Al Ehsaa" },
   { label: "Dhahran", value: "Dhahran" },
   { label: "Al Jawf", value: "Al Jawf" },
 ];
@@ -40,8 +39,7 @@ export const saudiCitiesAr = [
   { label: "الطائف", value: "الطائف" },
   { label: "ينبع", value: "ينبع" },
   { label: "بريدة", value: "بريدة" },
-  { label: "الهفوف", value: "الهفوف" },
-  { label: "الخبر", value: "الخبر" },
+  { label: "الإحساء", value: "الإحساء" },
   { label: "الظهران", value: "الظهران" },
   { label: "الجوف", value: "الجوف" },
 ];

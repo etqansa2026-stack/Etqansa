@@ -1,15 +1,18 @@
 {
   "Navbar": {
     "home": "الرئيسية",
-    "about": "عن الشركة",
+    "about": "عن المبادرة",
     "missionvision": "الرؤية والرسالة",
     "programs": "البرامج",
     "program1": "البرامج المهنية",
     "program2": "البرامج الحياتية",
-    "button":"انضم الآن"
+    "button":"سجل الآن"
   },
     "ProgramsSection": {
     "title": "برامجنا",
     "button": "استكشف البرنامج"
+  },
+      "Buttons": {
+    "details": "المزيد من التفاصيل"
   }
 }

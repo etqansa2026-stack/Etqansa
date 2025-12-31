@@ -7,13 +7,13 @@ export default function LifeHero({ isAr }: { isAr: boolean }) {
     <section className="relative bg-[#397a34] text-white py-32 overflow-hidden">
       <div className="container mx-auto px-6 text-center relative z-10">
         <h1 className="text-4xl centert md:text-5xl font-extrabold mb-6">
-          {isAr ? "برامج الحياة" : "Life Programs"}
+          {isAr ? "المسار الحياتي" : "Life Programs"}
         </h1>
 
         <p className="max-w-2xl centert mx-auto text-lg md:text-xl text-white/90 leading-relaxed">
           {isAr
-            ? "طور حياتك ومهاراتك الشخصية مع برامج حياتية مبتكرة ومميزة."
-            : "Enhance your life and personal skills with innovative and impactful life programs."}
+            ? "برامج تُعنى ببناء الشخصية، وتنمية المهارات السلوكية والذهنية، وتعزيز الجاهزية النفسية والاجتماعية، وتشمل مهارات التواصل، والتفكير، وإدارة الضغوط، والتخطيط، والمرونة."
+            : "Programs focused on character building, developing behavioral and cognitive skills, and enhancing psychological and social readiness. These programs include communication skills, critical thinking, stress management, planning, and adaptability."}
         </p>
       </div>
              <div className="absolute top-1/2 right-1/2 transform  -translate-y-1/2 translate-x-1/2 opacity-20 w-40 h-40 md:w-[400px] md:h-[400px] pointer-events-none">

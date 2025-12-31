@@ -16,6 +16,7 @@ import Image from "next/image";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("Navbar");
+  
   const pathname = usePathname();
 
   const navItems = [

@@ -10,9 +10,10 @@ export default function ObjectivesSection({ isAr }: { isAr: boolean }) {
        <GeneralObjectives isAr={isAr} />
             <CareerObjectives isAr={isAr} />
 
-      <SustainableObjectives isAr={isAr} />
+    
        
               <LifeObjectives isAr={isAr} />
+                <SustainableObjectives isAr={isAr} />
 
       
     

@@ -122,10 +122,15 @@ export default function ProgramFormPage({
             label={isAr ? "رقم الهاتف" : "Phone Number"}
             error={errors.phone_number}
           />
-          <TextInput
-            register={register("major")}
-            label={isAr ? "التخصص" : "Major"}
-            error={errors.major}
+             <FormSelect
+            options={isAr ? saudiCitiesAr : saudiCitiesEn}
+            control={control}
+            label={isAr ? "المدينة" : "City"}
+            name="location"
+            error={errors.location}
+            triggerClassName="w-full py-5"
+            placeholder={isAr ?"أختر خيار":"Select Option"}
+            dir={isAr}
           />
            <DateInput
             register={register("date_of_birth")}
@@ -153,16 +158,8 @@ export default function ProgramFormPage({
             placeholder={isAr ?"أختر خيار":"Select Option"}
             dir={isAr}
           />
-          <FormSelect
-            options={isAr ? saudiCitiesAr : saudiCitiesEn}
-            control={control}
-            label={isAr ? "المدينة" : "City"}
-            name="location"
-            error={errors.location}
-            triggerClassName="w-full py-5"
-            placeholder={isAr ?"أختر خيار":"Select Option"}
-            dir={isAr}
-          />
+       
+   
           <FormSelect
             options={isAr ? educationLevelsAr : educationLevelsEn}
             label={isAr ? "المستوى التعليمي" : "Education Level"}
@@ -173,7 +170,11 @@ export default function ProgramFormPage({
             placeholder={isAr ?"أختر خيار":"Select Option"}
             dir={isAr}
           />
-
+      <TextInput
+            register={register("major")}
+            label={isAr ? "التخصص" : "Major"}
+            error={errors.major}
+          />
           <FormSelect
             options={lifeProgramOptions(isAr)}
             label={isAr ? "البرامج الحياتية" : "Life Program"}

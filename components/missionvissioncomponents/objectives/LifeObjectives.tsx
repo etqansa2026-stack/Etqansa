@@ -21,7 +21,7 @@ export default function LifeObjectives({ isAr }: { isAr: boolean }) {
   const icons = [FiUsers, FiClock, FiThumbsUp, FiTool, FiAward];
 
   return (
-    <section className="bg-green-50 py-28 px-24">
+    <section className="bg-white py-28 px-24">
       <h2 className="text-3xl centert md:text-4xl font-bold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف الحياتية" : "Life Objectives"}
       </h2>
