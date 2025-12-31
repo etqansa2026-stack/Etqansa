@@ -21,7 +21,7 @@ export default function GeneralObjectives({ isAr }: { isAr: boolean }) {
   const icons = [FiZap, FiTrendingUp, FiUserCheck, FiTarget, FiActivity];
 
   return (
-    <section className="bg-green-50 py-20 px-24">
+    <section className="bg-white py-20 px-24">
       <h2 className="text-3xl centert md:text-4xl font-extrabold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف العامة" : "General Objectives"}
       </h2>

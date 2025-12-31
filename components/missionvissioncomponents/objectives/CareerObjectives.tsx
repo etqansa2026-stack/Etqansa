@@ -1,4 +1,5 @@
-import { FiTool, FiBriefcase, FiShield, FiTrendingUp } from "react-icons/fi";
+import {  FiBriefcase, FiShield, FiTrendingUp } from "react-icons/fi";
+import { MdEngineering } from "react-icons/md";
 
 export default function CareerObjectives({ isAr }: { isAr: boolean }) {
   const items = isAr
@@ -16,10 +17,10 @@ export default function CareerObjectives({ isAr }: { isAr: boolean }) {
       ];
 
   const colors = ["#FFFFFF", "#D1FAE5", "#FFFFFF", "#D1FAE5"];
-  const icons = [FiTool, FiBriefcase, FiShield, FiTrendingUp];
+  const icons = [MdEngineering, FiBriefcase, FiShield, FiTrendingUp];
 
   return (
-    <section className="bg-white py-28 px-24">
+    <section className="bg-green-50  py-28 px-24">
       <h2 className="text-3xl centert md:text-4xl font-bold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف المهنية" : "Career Objectives"}
       </h2>

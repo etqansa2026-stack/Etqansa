@@ -24,10 +24,7 @@ export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
 
   return (
     <section className="py-28 bg-[#6ab742]/10">
-      <h2 className="text-3xl centert md:text-4xl font-extrabold text-center mb-16 text-[#397a34]">
-        {isAr ? "رسالتنا ورؤيتنا" : "Our Mission & Vision"}
-      </h2>
-
+     
       <div className="flex flex-wrap justify-center gap-10 px-4">
         {sections.map((section, i) => {
           const Icon = section.icon;
