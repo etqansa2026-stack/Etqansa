@@ -8,10 +8,10 @@ import Link from 'next/link'
 
 
 type PageProps = {
-  params: {
+  params: Promise<{
     locale: Locale
     slug: string
-  }
+  }>
 }
 
 export default async function CourseDetailsPage({ params }: PageProps) {

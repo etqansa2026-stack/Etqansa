@@ -42,11 +42,11 @@ export default function InitiativePartners({ isAr,partners }: { isAr: boolean,pa
               className="flex-none w-full sm:w-1/2 lg:w-1/3" 
             >
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 md:w-32 bg-white md:h-32 rounded-full overflow-hidden mb-3 border-2 border-gray-200">
+                <div className="w-32 h-32 md:w-44 bg-white md:h-44 rounded-full overflow-hidden mb-3 border-2 border-gray-200">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <span className="text-center text-sm md:text-base font-medium">
