@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import TextInput from "../inputs/TextInput";
 import EmailInput from "../inputs/EmailInput";
 import FormSelect from "../inputs/SelectorInput";
-import Button2 from "@/components/ui/Button2"
+import Button2 from "@/components/ui/Button2";
 import {
   saudiCitiesAr,
   saudiCitiesEn,
@@ -84,8 +84,7 @@ export default function ProgramFormPage({
         console.log("result: ", result);
 
         if (result.status === 201) {
-          toast.success(result.message);
-           router.push("/");
+          router.push("/programs/form/thank-you");
           return;
         } else {
           toast.error(result.message);
@@ -110,7 +109,6 @@ export default function ProgramFormPage({
             register={register("name")}
             label={isAr ? "الأسم كامل" : "Full Name"}
             error={errors.name}
-            
           />
           <EmailInput
             register={register("email")}
@@ -122,17 +120,17 @@ export default function ProgramFormPage({
             label={isAr ? "رقم الهاتف" : "Phone Number"}
             error={errors.phone_number}
           />
-             <FormSelect
+          <FormSelect
             options={isAr ? saudiCitiesAr : saudiCitiesEn}
             control={control}
             label={isAr ? "المدينة" : "City"}
             name="location"
             error={errors.location}
             triggerClassName="w-full py-5"
-            placeholder={isAr ?"أختر خيار":"Select Option"}
+            placeholder={isAr ? "أختر خيار" : "Select Option"}
             dir={isAr}
           />
-           <DateInput
+          <DateInput
             register={register("date_of_birth")}
             label={isAr ? "تاريخ الميلاد" : "Date Of Birth"}
             error={errors.date_of_birth}
@@ -155,11 +153,10 @@ export default function ProgramFormPage({
             error={errors.gender}
             control={control}
             triggerClassName="w-full py-5 "
-            placeholder={isAr ?"أختر خيار":"Select Option"}
+            placeholder={isAr ? "أختر خيار" : "Select Option"}
             dir={isAr}
           />
-       
-   
+
           <FormSelect
             options={isAr ? educationLevelsAr : educationLevelsEn}
             label={isAr ? "المستوى التعليمي" : "Education Level"}
@@ -167,10 +164,10 @@ export default function ProgramFormPage({
             error={errors.education_level}
             control={control}
             triggerClassName="w-full py-5"
-            placeholder={isAr ?"أختر خيار":"Select Option"}
+            placeholder={isAr ? "أختر خيار" : "Select Option"}
             dir={isAr}
           />
-      <TextInput
+          <TextInput
             register={register("major")}
             label={isAr ? "التخصص" : "Major"}
             error={errors.major}
@@ -182,22 +179,19 @@ export default function ProgramFormPage({
             error={errors.life_program_id}
             control={control}
             triggerClassName="w-full py-5"
-            placeholder={isAr ?"أختر خيار":"Select Option"}
+            placeholder={isAr ? "أختر خيار" : "Select Option"}
             dir={isAr}
           />
           <FormSelect
-          
             options={professionalProgramsOptions(isAr)}
             label={isAr ? "البرامج المهنية" : "Professional Program"}
             name="professional_programs_id"
             error={errors.professional_programs_id}
             control={control}
             triggerClassName="w-full"
-            placeholder={isAr ?"أختر خيار":"Select Option"}
+            placeholder={isAr ? "أختر خيار" : "Select Option"}
             dir={isAr}
           />
-
-         
 
           <div className="border-t pt-6 md:col-span-2">
             <label className="flex items-start gap-3 text-gray-700">
