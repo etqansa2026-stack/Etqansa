@@ -74,7 +74,7 @@ export default function Footer({ locale = "en" }: Props) {
               href={LIFE_ROUTE}
               className="hover:text-slate-600 transition text-lg"
             >
-              {isArabic ? "برنامج الحياة" : "Life program"}
+              {isArabic ? "البرامج الحياتية" : "Life programs"}
             </Link>
             <Link
               href={PROFESSIONAL_ROUTE}
