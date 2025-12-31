@@ -37,7 +37,7 @@ console.log("datre: ",data);
             alt={data.name}
             width={160}
             height={160}
-            className="w-20 h-20 rounded-full object-contain  border-2 border-[#6ab742] shadow-sm shrink-0"
+            className="w-36 h-36 rounded-full object-contain shadow-sm shrink-0"
           />{" "}
         </div>
 
