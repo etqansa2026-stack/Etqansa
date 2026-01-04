@@ -27,11 +27,11 @@ export default function ClosingSection({ locale }: ClosingSectionProps) {
   const texts = content[locale]
 
   return (
-    <section className="relative bg-gradient-to-b from-green-50 to-white py-24 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-green-50 to-white md:px-6 md:py-28    px-6 py-8 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
       <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-green-200 rounded-full mix-blend-multiply filter blur-2xl opacity-20 -z-10"></div>
 
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div className="container mx-auto max-w-4xl">
         <h2 className="text-4xl md:text-5xl font-extrabold centert text-[#397a34] mb-8 animate-fadeIn">
           {texts.title}
         </h2>

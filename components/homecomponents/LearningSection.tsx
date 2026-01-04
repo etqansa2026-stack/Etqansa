@@ -24,7 +24,7 @@ export default function LearningSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-6 py-28">
+      <div className="container mx-auto  md:px-6 md:py-28    px-6 py-8">
         <div
           className="
             grid grid-cols-1 md:grid-cols-2

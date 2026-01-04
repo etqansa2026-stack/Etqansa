@@ -17,4 +17,9 @@
         "Buttons": {
     "details": "More Details"
   }
+    ,
+      "card": {
+    "days": "days",
+    "hours": "hours"
+  }
 }

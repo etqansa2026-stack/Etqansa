@@ -14,6 +14,7 @@ interface ProgramCardProps {
 
 export default function ProgramCard({ program }: ProgramCardProps) {
     const t = useTranslations("Buttons");
+      const c = useTranslations("card");
 
   return (
     <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition duration-300 flex flex-col">
@@ -38,16 +39,14 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         </p>
 
         <div className="flex flex-col gap-2 text-gray-600 text-sm mb-4">
-          {/* عدد الأيام */}
           <div className="flex items-center gap-2">
             <FaCalendarAlt className="text-green-700" />
-            <span>{program.duration_d ? `${program.duration_d} days` : "-"}</span>
+            <span>{program.duration_d ? `${program.duration_d} ${c("days")}` : "-"}</span>
           </div>
 
-          {/* عدد الساعات */}
           <div className="flex items-center gap-2">
             <FaClock className="text-green-700" />
-            <span>{program.duration_h ? `${program.duration_h} hours` : "-"}</span>
+            <span>{program.duration_h ? `${program.duration_h} ${c("hours")}` : "-"}</span>
           </div>
         </div>
 

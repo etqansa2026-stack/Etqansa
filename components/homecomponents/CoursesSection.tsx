@@ -15,7 +15,7 @@ export default function CoursesSection({ courses,locale }: CoursesSectionProps) 
     const isAr = locale === "ar";
   return (
     <section className="bg-green-50">
-      <div className="container mx-auto px-6 py-28">
+      <div className="container mx-auto md:px-6 md:py-28    px-6 py-8">
              <h2 className="text-3xl md:text-4xl font-extrabold centert mb-16 text-[#397a34]">
           {isAr ? "البرامج المميزة" : "Featured Courses "}
         </h2>

@@ -35,7 +35,6 @@ function Counter({ value }: { value: number }) {
 }
 
 export default function StatsSection({ stats }: { stats: Stat }) {
-  console.log("number_of_students: ", stats.number_of_students);
   const locale = stats.locale;
 
   const numbers = [
@@ -52,37 +51,44 @@ export default function StatsSection({ stats }: { stats: Stat }) {
       value: stats.number_of_instructors,
     },
   ];
+
   return (
     <section className="bg-white border-t border-[#6ab742]/30">
-      <div className="container mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto text-center">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-10 max-w-5xl mx-auto text-center">
           {numbers.map((number) => (
             <div
               key={number.label}
               className="
-                rounded-2xl p-8
+                rounded-xl
+                p-3 md:p-8
                 bg-white
                 border border-[#6ab742]/30
                 shadow-sm
                 hover:shadow-lg
                 transition-all duration-300
-                flex flex-row justify-center 
-                
-                
-                
-                
+                flex flex-col md:flex-row
+                items-center justify-center
+                gap-1 md:gap-2
               "
             >
               <div
-                className="text-2xl
-                lg:text-3xl font-extrabold mb-2 text-[#397a34]"
+                className="
+                  text-lg md:text-2xl lg:text-3xl
+                  font-extrabold
+                  text-[#397a34]
+                "
               >
                 <Counter value={Number(number.value)} />+
               </div>
 
               <div
-                className="text-gray-700 text-2xl
-                lg:text-3xl px-1.5 font-medium tracking-wide"
+                className="
+                  text-gray-700
+                  text-sm md:text-2xl lg:text-3xl
+                  font-medium
+                  tracking-wide
+                "
               >
                 {number.label}
               </div>

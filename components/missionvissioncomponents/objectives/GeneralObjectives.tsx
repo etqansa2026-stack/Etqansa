@@ -17,11 +17,11 @@ export default function GeneralObjectives({ isAr }: { isAr: boolean }) {
         "Contribute to sustainable community development",
       ];
 
-  const colors = ["#FFFFFF", "#D1FAE5", "#FFFFFF", "#D1FAE5", "#FFFFFF"];
+  const colors = ["#FFFFFF", "#f0fdf4", "#FFFFFF", "#f0fdf4", "#FFFFFF"];
   const icons = [FiZap, FiTrendingUp, FiUserCheck, FiTarget, FiActivity];
 
   return (
-    <section className="bg-white py-20 px-24">
+    <section className="bg-white  md:px-6 md:py-28    px-6 py-8">
       <h2 className="text-3xl centert md:text-4xl font-extrabold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف العامة" : "General Objectives"}
       </h2>

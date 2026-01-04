@@ -16,11 +16,11 @@ export default function CareerObjectives({ isAr }: { isAr: boolean }) {
         "Prepare participants for job searching and entrepreneurship",
       ];
 
-  const colors = ["#FFFFFF", "#D1FAE5", "#FFFFFF", "#D1FAE5"];
+  const colors = ["#FFFFFF", "#f0fdf4", "#FFFFFF", "#f0fdf4"];
   const icons = [MdEngineering, FiBriefcase, FiShield, FiTrendingUp];
 
   return (
-    <section className="bg-green-50  py-28 px-24">
+    <section className="bg-green-50  md:px-6 md:py-28    px-6 py-8">
       <h2 className="text-3xl centert md:text-4xl font-bold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف المهنية" : "Career Objectives"}
       </h2>

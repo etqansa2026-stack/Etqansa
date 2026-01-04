@@ -23,7 +23,7 @@ export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
   const iconBgColor = "#FDE68A30";
 
   return (
-    <section className="py-28 bg-[#6ab742]/10">
+    <section className=" md:px-6 md:py-28    px-6 py-8 bg-[#6ab742]/10">
      
       <div className="flex flex-wrap justify-center gap-10 px-4">
         {sections.map((section, i) => {

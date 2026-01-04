@@ -37,7 +37,7 @@ export default function Banner({ banners, locale }: BannerProps) {
 
   return (
     <Carousel
-      plugins={[Autoplay({ delay: 10000, stopOnInteraction: false })]}
+      plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
       opts={{ align: "start", direction: isAr ? "rtl" : "ltr" }}
       className="w-full"
     >
@@ -62,30 +62,9 @@ export default function Banner({ banners, locale }: BannerProps) {
                     onLoad={() => handleImageLoad(index)}
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20" />
+                
 
-                  <div className="absolute inset-0 z-30 text-white">
-                    <div
-                      className={`
-                        absolute bottom-10 md:bottom-50
-                        ${isAr ? "right-6 md:right-16 text-right" : "left-6 md:left-16 text-left"}
-                      `}
-                    >
-                      <div className="flex flex-col gap-4 max-w-md md:max-w-lg">
-                        <p className="text-lg md:text-4xl lg:text-7xl font-bold leading-tight drop-shadow-md">
-                          {banner.description || ""}
-                        </p>
-
-                        <div >
-                          <Link href={"/about"}>
-                          <Button2 className="md:px-12! md:py-4! md:text-2xl!">
-                            {isAr ? "عن إتقان" : "About Etqan"}
-                          </Button2>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+             
                 </CardContent>
               </Card>
             </div>

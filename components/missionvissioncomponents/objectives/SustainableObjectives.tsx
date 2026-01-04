@@ -35,10 +35,10 @@ export default function WorkMethodology({ isAr }: { isAr: boolean }) {
     FiBriefcase,
   ];
 
-  const colors = ["#FFFFFF", "#D1FAE5"];
+  const colors = ["#FFFFFF", "#f0fdf4"];
 
   return (
-    <section className="bg-green-50 py-28 px-24" dir={isAr ? "rtl" : "ltr"}>
+    <section className="bg-green-50  md:px-6 md:py-28    px-6 py-8" dir={isAr ? "rtl" : "ltr"}>
       <h2 className="text-3xl md:text-4xl centert font-bold text-center mb-6 text-[#397a34]">
         {isAr ? "منهجية العمل" : "Work Methodology"}
       </h2>

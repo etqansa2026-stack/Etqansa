@@ -33,7 +33,7 @@ export default function CTASection({ locale }: CTASectionProps) {
         <p className="max-w-xl mx-auto mb-8  centert opacity-90 text-gray-100">
           {locale === 'ar' ? <span dir="rtl">{texts.subtitle}</span> : texts.subtitle}
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center justify-self-center gap-4">
           <Link href={"/programs/form"}>
           <Button1>
             {locale === 'ar' ? <span dir="rtl">{texts.buttons}</span> : texts.buttons}

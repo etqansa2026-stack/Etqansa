@@ -109,8 +109,8 @@ export default function Footer({ locale = "en" }: Props) {
 
           <div className="text-lg space-y-4 max-w-sm flex flex-col items-start">
             {/* Email */}
-            <div className="flex items-center gap-2 rtl:gap-2 rtl:flex-row-reverse">
-              <Mail size={22} className="shrink-0" />
+            <div  dir="ltr"  className="flex items-center  gap-2  flex-row-reverse">
+             
               <a
                 href={`mailto:${EMAIL}`}
                 className="text-lg font-medium hover:text-slate-600 transition wrap-break-word text-center"
@@ -118,11 +118,12 @@ export default function Footer({ locale = "en" }: Props) {
               >
                 {EMAIL}
               </a>
+               <Mail size={22} className="shrink-0" />
             </div>
 
             {/* Phone */}
-            <div className="flex items-center gap-2 rtl:gap-2 rtl:flex-row-reverse">
-              <Phone size={22} className="shrink-0" />
+            <div  dir="ltr"  className="flex items-center  gap-2 flex-row-reverse">
+            
               <a
                 dir="ltr"
                 href={`tel:${PHONE}`}
@@ -130,6 +131,7 @@ export default function Footer({ locale = "en" }: Props) {
               >
                 {PHONE}
               </a>
+                <Phone size={22} className="shrink-0" />
             </div>
 
             {/* Social icons */}

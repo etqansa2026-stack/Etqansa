@@ -17,11 +17,11 @@ export default function LifeObjectives({ isAr }: { isAr: boolean }) {
         "Instill positive values and responsibility",
       ];
 
-  const colors = ["#FFFFFF", "#D1FAE5", "#FFFFFF", "#D1FAE5", "#FFFFFF"];
+  const colors = ["#FFFFFF", "#f0fdf4", "#FFFFFF", "#f0fdf4", "#FFFFFF"];
   const icons = [FiUsers, FiClock, FiThumbsUp, FiTool, FiAward];
 
   return (
-    <section className="bg-white py-28 px-24">
+    <section className="bg-white  md:px-6 md:py-28    px-6 py-8">
       <h2 className="text-3xl centert md:text-4xl font-bold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف الحياتية" : "Life Objectives"}
       </h2>

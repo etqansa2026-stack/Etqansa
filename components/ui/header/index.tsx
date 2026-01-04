@@ -136,7 +136,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-4 py-3 text-sm font-medium text-[#397a34] hover:text-[#FDE68A] hover:bg-green-100 transition-colors"
+              className="rounded-lg px-4 py-3 text-sm font-medium text-[#397a34] hover:bg-green-100 transition-colors"
             >
               {t(item.key)}
             </Link>
@@ -151,7 +151,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-6 py-3 text-sm text-[#397a34] hover:text-[#FDE68A] hover:bg-green-100 transition-colors"
+                className="block rounded-lg px-6 py-3 text-sm text-[#397a34]  hover:bg-green-100 transition-colors"
               >
                 {t(item.key)}
               </Link>

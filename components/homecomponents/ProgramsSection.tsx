@@ -26,7 +26,7 @@ export default function ProgramsSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-green-50">
-      <div className="container mx-auto px-6 py-28">
+      <div className="container mx-auto md:px-6 md:py-28    px-6 py-8">
         <h2 className="text-3xl md:text-4xl font-extrabold centert mb-16 text-[#397a34]">
           {isAr ? "برامجنا" : "Our Programs"}
         </h2>
@@ -44,7 +44,7 @@ export default function ProgramsSection({ locale }: { locale: Locale }) {
                 transition-all duration-300
               "
             >
-              <CardContent className="p-10 text-center flex flex-col h-full">
+              <CardContent className="p-10 text-center items-center justify-center flex flex-col h-full">
                 <h3 className="text-2xl font-bold mb-4 text-[#397a34]">
                   {program.title}
                 </h3>
@@ -52,11 +52,13 @@ export default function ProgramsSection({ locale }: { locale: Locale }) {
                 <p className="text-gray-700 flex-1 mb-8 leading-relaxed">
                   {program.description}
                 </p>
+                <section className="flex justify-center w-full">
                 <Link href={`/programs/${program.type}`}>
-                  <Button2>
+                  <Button2 >
                     {isAr ? "استعرض البرامج" : "Explore Programs"}
                   </Button2>
                 </Link>
+                </section>
               </CardContent>
             </Card>
           ))}
