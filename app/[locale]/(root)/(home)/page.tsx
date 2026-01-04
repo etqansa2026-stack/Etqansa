@@ -46,7 +46,6 @@ export default async function Page({ params }: PageProps) {
       <LearningSection locale={locale} />
       <ClosingSection locale={locale} />
       <CTASection locale={locale} />
-      <Footer />
     </div>
   );
 }
