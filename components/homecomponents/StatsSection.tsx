@@ -14,11 +14,11 @@ interface Stat {
   locale: Locale;
 }
 
-/* Helper لتحويل أي قيمة إلى رقم صالح */
-const safeNumber = (val?: string | null) => {
-  if (!val) return 0; // null, undefined, empty string
-  const n = Number(val.toString().replace(/,/g, "")); // إزالة أي فاصلة لو موجودة
-  return Number.isFinite(n) && n > 0 ? n : 0;
+/* Helper لتحويل أي قيمة إلى رقم صالح مع default */
+const safeNumber = (val?: string | null, defaultValue: number = 100) => {
+  if (!val) return defaultValue; // null, undefined, empty string
+  const n = Number(val.toString().replace(/,/g, "")); // إزالة أي فاصلة
+  return Number.isFinite(n) && n > 0 ? n : defaultValue;
 };
 
 /* Counter Component باستخدام GSAP */
@@ -60,26 +60,24 @@ export default function StatsSection({ stats }: { stats: Stat }) {
     });
   }, []);
 
+  /* تعريف الأرقام مع قيم افتراضية */
   const numbers = [
     {
       label: locale === "ar" ? "متدرب" : "Trainee",
-      value: safeNumber(stats.number_of_students),
+      value: safeNumber(stats.number_of_students, 100),
     },
     {
       label: locale === "ar" ? "برنامج" : "Program",
-      value: safeNumber(stats.number_of_programs),
+      value: safeNumber(stats.number_of_programs, 34),
     },
     {
       label: locale === "ar" ? "مدرب" : "Trainer",
-      value: safeNumber(stats.number_of_instructors),
+      value: safeNumber(stats.number_of_instructors, 80),
     },
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-white border-t border-[#6ab742]/30"
-    >
+    <section ref={sectionRef} className="bg-white border-t border-[#6ab742]/30">
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="grid grid-cols-3 gap-3 md:gap-10 max-w-5xl mx-auto text-center">
           {numbers.map((number) => (
@@ -99,7 +97,10 @@ export default function StatsSection({ stats }: { stats: Stat }) {
               "
             >
               <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-[#397a34]">
-                {startCount && <Counter value={number.value} start={startCount} />}+
+                {startCount && (
+                  <Counter value={number.value} start={startCount} />
+                )}
+                +
               </div>
               <div className="text-gray-700 text-sm md:text-2xl lg:text-3xl font-medium">
                 {number.label}
