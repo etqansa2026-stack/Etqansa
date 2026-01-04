@@ -7,6 +7,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ===============================
+   Types
+================================ */
 interface Stat {
   number_of_programs?: string | null;
   number_of_students?: string | null;
@@ -14,19 +17,27 @@ interface Stat {
   locale: Locale;
 }
 
-/* Helper: safe number */
+/* ===============================
+   Helper: safe number
+================================ */
 const safeNumber = (val?: string | null) => {
-  const n = Number(val);
+  if (!val) return 0; // null, undefined, empty string
+  const n = Number(val.replace(/,/g, "")); // إزالة أي فاصلة لو موجودة
   return Number.isFinite(n) && n > 0 ? n : 0;
 };
 
-/* Counter with GSAP */
+/* ===============================
+   Counter Component (GSAP)
+================================ */
 function Counter({ value, start }: { value: number; start: boolean }) {
   const [count, setCount] = useState(0);
-  const counterRef = useRef({ val: 0 }); // متغير GSAP
+  const counterRef = useRef({ val: 0 }); // GSAP object
+  const hasStarted = useRef(false);
 
   useEffect(() => {
-    if (!start || value <= 0) return;
+    if (!start || value <= 0 || hasStarted.current) return;
+
+    hasStarted.current = true;
 
     gsap.to(counterRef.current, {
       val: value,
@@ -39,7 +50,9 @@ function Counter({ value, start }: { value: number; start: boolean }) {
   return <span>{count.toLocaleString()}</span>;
 }
 
-/* Stats Section */
+/* ===============================
+   Stats Section
+================================ */
 export default function StatsSection({ stats }: { stats: Stat }) {
   const locale = stats.locale;
   const sectionRef = useRef<HTMLDivElement>(null);
