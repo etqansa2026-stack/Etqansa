@@ -1,6 +1,4 @@
 "use client";
-import React, { useState } from "react";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -64,7 +62,7 @@ function ResetPasswordPage() {
         className="max-w-lg mx-auto shadow-lg shadow-slate-500/50 p-7 rounded-lg bg-white mt-28 mb-20"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-2xl flex justify-center border-b-2 border-[#676e32] dark:text-black mb-4 pb-2">
+        <h1 className="text-2xl flex flex-row justify-center border-b-2 border-[#397a34]  mb-4 pb-2">
           Reset Your Password
         </h1>
 
@@ -91,7 +89,7 @@ function ResetPasswordPage() {
         {/* Back Link */}
         <Link
           href="/login"
-          className="block pt-4 text-center text-sm text-[#397a34] underline-offset-4 hover:underline m-2"
+          className="flex flex-row pt-4 text-center justify-center text-sm text-[#397a34] underline-offset-4 hover:underline m-2"
         >
           Back To Login
         </Link>

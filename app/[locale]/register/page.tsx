@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import Button2 from "@/components/ui/Button2";
 import Button1 from "@/components/ui/Button1";
+import { useRouter } from "next/navigation";
 
 const clientRegisterSchema = newUserSchema;
 type FormValues = z.infer<typeof clientRegisterSchema>;
@@ -33,6 +34,7 @@ export default function RegisterForm() {
       confirmPassword: "",
     },
   });
+  const router= useRouter()
 
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
@@ -44,15 +46,18 @@ export default function RegisterForm() {
         return;
       }
       const signInResult = await signIn("credentials", {
-        callbackUrl: "/",
+        redirect: false,
         email: data.email,
         password: data.password,
       });
-      if (signInResult?.error) {
-        toast.error(signInResult.error);
-        setLoading(false);
-        return;
-      }
+     if(signInResult?.ok) {
+  toast.success("Registered Successfully")
+       router.push("/")
+       return
+     }else {
+      return toast.error("An unexpected error occurred during login.");
+       
+     }
     } catch (err) {
       toast.error("An unexpected error occurred.");
       setLoading(false);

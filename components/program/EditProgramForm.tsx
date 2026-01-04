@@ -20,7 +20,6 @@ import TextareaInput from "@/components/inputs/TextareaInput";
 import { FolderOpen } from "lucide-react";
 import FormSelect from "../inputs/SelectorInput";
 import CheckboxInput from "../inputs/CheckBox";
-import { saudiCitiesAr, saudiCitiesEn } from "@/app/constants/saudiCities";
 import Button1 from "../ui/Button1";
 import Button2 from "../ui/Button2";
 interface Props {
@@ -124,7 +123,7 @@ export default function EditProgramForm({
 
   return (
     <main className="ml-3 xl:ml-7 mb-7">
-      <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[70vw] mb-7">
+      <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[90vw] md:w-[70vw] mb-7">
         <h1 className="text-lg md:text-2xl font-bold">Edit Program</h1>
         <p className="text-xs md:text-base text-gray-600">ID: {program.id}</p>
       </div>
@@ -133,7 +132,7 @@ export default function EditProgramForm({
         onSubmit={handleSubmit(onSubmit)}
         className="h-full w-full lg:w-[70vw] flex flex-col gap-5"
       >
-        <Card className="w-full h-full pt-10">
+        <Card className="w-full h-full pt-5">
           <CardHeader>
             <CardTitle>Edit Program Details</CardTitle>
             <CardDescription>

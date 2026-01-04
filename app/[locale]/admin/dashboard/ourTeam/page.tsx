@@ -35,6 +35,8 @@ export default async function MemberTable() {
             <NavigationButton
               routeName="newMember"
               value="Add New Member"
+              className="mb-10"
+              
             />
           </CardContent>
         </Card>
@@ -46,7 +48,7 @@ export default async function MemberTable() {
             routeName="ourTeam"
             deleteAction={deleteMemberAction}
           />
-         <div className="flex flex-row justify-center gap-4 ">
+         <div className="flex flex-col md:flex-row w-full justify-center gap-4 mb-10 mt-12 md:mt-7 ">
            <NavigationButton
             routeName="newMember"
             value="Add New Member"

@@ -173,7 +173,7 @@ function EditSettingForm({ setting, action }: prop) {
         }}
         className="flex flex-col gap-6 w-full md:w-[70vw]"
       >
-        <Card className="pt-10 pb-5 ">
+        <Card className="pt-5 pb-5 ">
           <CardHeader>
             <CardTitle>Edit Setting Details</CardTitle>
             <CardDescription>Update the fields below.</CardDescription>

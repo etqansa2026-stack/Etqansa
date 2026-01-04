@@ -115,7 +115,7 @@ export default function CreateNewSetting({
   if (remainingOptions.length === 0) {
     return (
       <main className="ml-3 xl:ml-7 mb-7">
-        <div className="flex flex-col justify-start items-start w-[70vw] mb-7">
+        <div className="flex flex-col justify-start items-start w-[90vw] md:w-[70vw] mb-7">
           <h1 className="text-lg md:text-2xl font-bold">Add New Setting</h1>
         </div>
 
@@ -193,28 +193,14 @@ export default function CreateNewSetting({
               error={errors.value_en}
               label=""
             />
-            {/*<input
-              type="text"
-              {...register("value_en")}
-              className={`border px-2 py-1 rounded border-black bg-white ${inputWidthClass} h-[5vh] text-black`}
-              placeholder={selected.placeholder ?? ""}
-            />
-            {errors.value_en && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.value_en.message}
-              </p>
-            )}*/}
+            
           </>
         );
 
       case "number":
         return (
           <>
-            {/* <TextInput
-              register={register("key_name_en")}
-              error={errors.value_en}
-              label=""
-            />*/}
+           
             <input
               type="number"
               {...register("value_en")}
@@ -238,15 +224,7 @@ export default function CreateNewSetting({
               error={errors.value_en}
               className=""
             />
-            {/* <textarea
-              {...register("value_en")}
-              className={`border px-2 py-1 rounded border-black bg-white ${textareaWidthClass} h-[15vh] text-black`}
-            />
-            {errors.value_en && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.value_en.message}
-              </p>
-            )*/}
+            
           </>
         );
 
@@ -292,16 +270,6 @@ export default function CreateNewSetting({
             error={errors.value_en}
             className=""
           />
-          {/* <textarea
-            dir="rtl"
-            {...register("value_ar")}
-            className={`border px-2 py-1 rounded border-black bg-white ${textareaWidthClass} h-[15vh] text-right`}
-          />
-          {errors.value_ar && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.value_ar.message}
-            </p>
-          )}*/}
         </>
       );
     }
@@ -319,7 +287,7 @@ export default function CreateNewSetting({
         onSubmit={handleSubmit(onSubmit)}
         className="h-full w-full lg:w-[70vw] flex flex-col gap-5"
       >
-        <Card className="w-full h-full pt-10">
+        <Card className="w-full h-full pt-5">
           <CardHeader>
             <CardTitle>New Setting Details</CardTitle>
             <CardDescription>

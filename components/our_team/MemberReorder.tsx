@@ -172,7 +172,7 @@ export default function MemberReorder({
   const saving = externalSaving ?? isSaving;
 
   return (
-    <div className="w-[95vw]   mx-auto ml-2 lg:ml-5 lg:w-[80vw] mt-3">
+    <div className="  w-[75vw] md:w-[65vw]   mx-auto ml-2 lg:ml-5 xl:w-[75vw] mt-3">
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="text-2xl font-semibold">Team Members</h3>

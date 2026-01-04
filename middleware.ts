@@ -5,9 +5,9 @@ import { routing } from "@/i18n/routing";
 
 const handleI18nRouting = createMiddleware(routing);
 
-const protectedRoutes = ["/admin/dashboard"];
+const protectedRoutes = ["/admin/dashboard", "/change-password"];
 const adminRoutes = ["/admin/dashboard"];
-const authRoutes = ["/login", "/register"];
+const authRoutes = ["/login", "/register","/forgot-password","/reset-password"];
 
 export async function middleware(req: NextRequest) {
   const i18nResponse = handleI18nRouting(req);

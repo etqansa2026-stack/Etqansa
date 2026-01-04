@@ -75,7 +75,7 @@ export default function AddBannerForm({ action }: Props) {
 
   return (
     <main className="ml-3 xl:ml-7 mb-7">
-      <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[75vw] mb-7">
+      <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[90vw] md:w-[70vw] mb-7">
         <h1 className="text-lg md:text-2xl font-bold">Add New Banner</h1>
       </div>
 
@@ -83,7 +83,7 @@ export default function AddBannerForm({ action }: Props) {
         onSubmit={handleSubmit(onSubmit)}
         className="h-full w-full lg:w-[70vw] flex flex-col gap-5"
       >
-        <Card className="w-full h-full pt-10">
+        <Card className="w-full h-full pt-5">
           <CardHeader>
             <CardTitle>New Banner Details</CardTitle>
             <CardDescription>

@@ -49,7 +49,7 @@ function Page() {
         onSubmit={handleSubmit(onSubmit)}
       >
         {!success && (
-          <h1 className="text-2xl font-bold text-center text-gray-800 border-b-2 border-[#676e32] pb-3 mb-6">
+          <h1 className="text-2xl font-bold text-center flex flex-row justify-center text-gray-800 border-b-2 border-[#397a34] pb-3 mb-6">
             Enter Your Email
           </h1>
         )}
@@ -79,14 +79,14 @@ function Page() {
         
 
         {!success && (
-        <Button2 type="submit"
+        <Button2 type="submit" className="w-full"
             disabled={loading}> {loading ? "Sending..." : "Send Reset Link"}</Button2>
         )}
 
         <div className="text-center pt-4">
           <Link
             href="/login"
-            className="text-sm text-[#397a34] hover:underline font-medium"
+            className="text-base flex flex-row justify-center text-[#397a34] hover:underline font-medium"
           >
             Back To Login
           </Link>

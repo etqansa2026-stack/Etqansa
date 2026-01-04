@@ -18,15 +18,15 @@ async function Page(props: { params: Promise<{ id: string }> }) {
     <>
       <main className="ml-7 mb-7">
         {/* Header */}
-        <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[80vw] mb-7">
+        <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[80vw] mb-7 ">
           <h1 className="text-lg md:text-2xl font-bold"> Edit User</h1>
           <h2 className="text-base md:text-xl text-gray-400">
             Manage role for Admin
           </h2>
         </div>
 
-        <div className="h-full lg:h-[85vh] w-[80vw] flex flex-col lg:flex-row gap-5">
-          <Card className="w-full h-full">
+        <div className="h-full lg:h-[85vh] w-[80vw] flex flex-col lg:flex-row gap-5 ">
+          <Card className="w-full h-full pt-7">
             <CardHeader>
               <CardTitle className="text-base md:text-2xl mb-5">
                 User Information
@@ -78,7 +78,7 @@ async function Page(props: { params: Promise<{ id: string }> }) {
           </Card>
 
           {/* Edit User Card */}
-          <Card className="w-full h-full">
+          <Card className="w-full h-full pt-7">
             <CardHeader>
               <CardTitle className="text-base md:text-2xl mb-2">
                 Edit User Role

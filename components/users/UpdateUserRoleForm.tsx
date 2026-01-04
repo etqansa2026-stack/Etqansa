@@ -1,11 +1,13 @@
 "use client";
 import  { useTransition } from "react";
-import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import SelectorInput from "@/components/inputs/SelectorInput";
 import { Role } from "@/app/server/users/services";
+import Button1 from "../ui/Button1";
+import Button2  from "@/components/ui/Button2";
+
 interface Props {
   userId: string;
   userRole: string;
@@ -46,10 +48,10 @@ export default function UpdateRoleForm({ userId, userRole, action }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 ">
       <input type="hidden" name="userId" value={userId} />
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 ">
         <p className="text-xs lg:text-base text-black font-bold">User Role</p>
         <SelectorInput
           name="newRole"
@@ -68,16 +70,9 @@ export default function UpdateRoleForm({ userId, userRole, action }: Props) {
         only.{" "}
       </div>
       <div className="flex flex-row gap-3 justify-end mt-8">
-        <Button variant="outline" type="button" className="cursor-pointer" onClick={()=>{router.push("/admin/dashboard/users")}}>
-          Cancel
-        </Button>
-        <Button
-          type="submit"
-          className="bg-black text-white cursor-pointer hover:bg-gray-700"
-          disabled={isPending}
-        >
-          {isPending ? "Updating..." : "Update Role"}
-        </Button>
+        <Button1 type="button"  onClick={()=>{router.push("/admin/dashboard/users")}}>Cencel</Button1>
+        <Button2 type="submit"  disabled={isPending}>{isPending ? "Updating..." : "Update Role"}</Button2>
+        
       </div>
     </form>
   );

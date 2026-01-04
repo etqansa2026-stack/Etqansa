@@ -4,9 +4,10 @@ import { useRouter, usePathname } from "next/navigation";
 interface NavigationButtonProps {
   routeName: string;
   value: string;
+  className?:string
 }
 
-export default function NavigationButton({ routeName, value }: NavigationButtonProps) {
+export default function NavigationButton({ routeName, value ,className}: NavigationButtonProps) {
   const router = useRouter();
   const pathname = usePathname(); 
 
@@ -22,7 +23,7 @@ export default function NavigationButton({ routeName, value }: NavigationButtonP
   return (
     <button
       onClick={handleClick}
-      className={`px-6 py-3 rounded-full font-bold text-white
+      className={`px-6 py-3 rounded-full font-bold text-white ${className}
         bg-[#397a34] border-2 border-[#397a34] relative overflow-hidden
         before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-white/10 before:transition-all before:duration-300 hover:before:w-full
         transition-all duration-300 hover:text-white

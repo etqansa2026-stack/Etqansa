@@ -61,7 +61,7 @@ function Page() {
         className="max-w-lg mx-auto shadow-lg shadow-slate-500/50 p-7 rounded-lg bg-white h-1/2 sm:w-11/12 md:w-1/2 lg:w-full mt-14  "
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-2xl flex justify-center border-b-2 border-[#00ADEE] mb-4 pb-2">
+        <h1 className="text-2xl flex justify-center border-b-2 border-[#397a34] mb-4 pb-2">
           Change Your Password
         </h1>
 
@@ -80,17 +80,19 @@ function Page() {
           register={register("confirmPassword")}
           error={errors.confirmPassword}
         />
-        <Button2 disabled={loading} className=" px-5 py-2.5" type="submit">
+        <div className="flex flex-col items-center justify-center">
           {" "}
-          {loading ? "Changing..." : "Change"}
-        </Button2>
-
-        <Link
-          href="/"
-          className="block pt-4 text-center text-sm text-primary underline-offset-4 hover:underline m-2"
-        >
-          Back To Home
-        </Link>
+          <Button2 disabled={loading} className="w-full" type="submit">
+            {" "}
+            {loading ? "Changing..." : "Change"}
+          </Button2>
+          <Link
+            href="/"
+            className="block pt-4 text-center text-sm text-primary underline-offset-4 hover:underline m-2"
+          >
+            Back To Home
+          </Link>
+        </div>
       </form>
     </main>
   );

@@ -13,6 +13,7 @@ import PasswordInput from "@/components/inputs/PasswordInput";
 import EmailInput from "@/components/inputs/EmailInput";
 import Button2 from "@/components/ui/Button2";
 import Button1 from "@/components/ui/Button1";
+import { useRouter } from "next/navigation";
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const Login = () => {
@@ -25,17 +26,25 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
+  const router= useRouter()
+
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     setLoading(true);
     try {
       const result = await signIn("credentials", {
-        callbackUrl: "/",
+        redirect:false,
         email: data.email,
         password: data.password,
       });
+
       if (result?.ok) {
-        toast.error("Invalid email or password. Please try again.");
+        toast.success("Logged In Successfully")
+       router.push("/")
+       return
+       
       }
+       return toast.error("Invalid email or password. Please try again.");
+       
     } catch (err) {
       toast.error("An unexpected error occurred.");
     } finally {
@@ -43,7 +52,18 @@ const Login = () => {
     }
   };
   const handleGoogleSignIn = async () => {
-    await signIn("google", { callbackUrl: "/" });
+  try {
+    const result=  await signIn("google", { redirect:false });
+   if (result?.ok) {
+        toast.success("Logged In Successfully")
+       router.push("/")
+       return
+       
+      }
+       return toast.error("An unexpected error occurred. Please try again.");
+  } catch (error) {
+     return toast.error("An unexpected error occurred.");
+  }
   };
 
   return (
