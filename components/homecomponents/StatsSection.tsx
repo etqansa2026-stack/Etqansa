@@ -14,32 +14,36 @@ interface Stat {
   locale: Locale;
 }
 
+/* Helper لتحويل أي قيمة إلى رقم صالح */
+const safeNumber = (val?: string | null) => {
+  if (!val) return 0; // null, undefined, empty string
+  const n = Number(val.toString().replace(/,/g, "")); // إزالة أي فاصلة لو موجودة
+  return Number.isFinite(n) && n > 0 ? n : 0;
+};
+
+/* Counter Component باستخدام GSAP */
 function Counter({ value, start }: { value: number; start: boolean }) {
   const [count, setCount] = useState(0);
+  const counterRef = useRef({ val: 0 }); // متغير GSAP
+  const hasStarted = useRef(false);
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || value <= 0 || hasStarted.current) return;
 
-    let current = 0;
-    const duration = 3000;
-    const step = value / (duration / 16);
+    hasStarted.current = true;
 
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
+    gsap.to(counterRef.current, {
+      val: value,
+      duration: 2.5,
+      ease: "power1.out",
+      onUpdate: () => setCount(Math.floor(counterRef.current.val)),
+    });
   }, [start, value]);
 
   return <span>{count.toLocaleString()}</span>;
 }
 
+/* Stats Section */
 export default function StatsSection({ stats }: { stats: Stat }) {
   const locale = stats.locale;
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -51,7 +55,7 @@ export default function StatsSection({ stats }: { stats: Stat }) {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top 80%",
-      once: true, // يشتغل مرة وحدة
+      once: true, // يشتغل مرة واحدة فقط
       onEnter: () => setStartCount(true),
     });
   }, []);
@@ -59,15 +63,15 @@ export default function StatsSection({ stats }: { stats: Stat }) {
   const numbers = [
     {
       label: locale === "ar" ? "متدرب" : "Trainee",
-      value: stats.number_of_students,
+      value: safeNumber(stats.number_of_students),
     },
     {
       label: locale === "ar" ? "برنامج" : "Program",
-      value: stats.number_of_programs,
+      value: safeNumber(stats.number_of_programs),
     },
     {
       label: locale === "ar" ? "مدرب" : "Trainer",
-      value: stats.number_of_instructors,
+      value: safeNumber(stats.number_of_instructors),
     },
   ];
 
@@ -95,13 +99,8 @@ export default function StatsSection({ stats }: { stats: Stat }) {
               "
             >
               <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-[#397a34]">
-                <Counter
-                  value={Number(number.value)}
-                  start={startCount}
-                />
-                +
+                {startCount && <Counter value={number.value} start={startCount} />}+
               </div>
-
               <div className="text-gray-700 text-sm md:text-2xl lg:text-3xl font-medium">
                 {number.label}
               </div>
