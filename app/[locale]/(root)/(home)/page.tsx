@@ -5,7 +5,6 @@ import CoursesSection from '@/components/homecomponents/CoursesSection';
 import LearningSection from '@/components/homecomponents/LearningSection';
 import ClosingSection from '@/components/homecomponents/ClosingSection';
 import CTASection from '@/components/homecomponents/CTASection';
-import Footer from '@/components/ui/Footer';
 
 import { getAllBannersByLocale } from "@/app/server/banners/services";
 import { getFeaturedProgramsByLocale } from "@/app/server/programs/services";
@@ -14,7 +13,7 @@ import { getSettingByFieldName } from "@/app/server/settings/services";
 type Locale = 'en' | 'ar';
 
 interface PageProps {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }
 
 export default async function Page({ params }: PageProps) {

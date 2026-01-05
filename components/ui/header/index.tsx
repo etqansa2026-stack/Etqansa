@@ -16,7 +16,7 @@ import Image from "next/image";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("Navbar");
-  
+
   const pathname = usePathname();
 
   const navItems = [
@@ -44,7 +44,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center gap-10">
+          <ul className="hidden md:flex items-center gap-4 lg:gap-10">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -84,8 +84,13 @@ export default function Header() {
           <div className="flex items-center gap-4 md:gap-6">
             {/* Enroll Button */}
             <Link href="/programs/form" className="hidden md:inline-flex">
-              <Button2 className="px-6 py-3 text-base">                              {t("button")}
-</Button2>
+              <Button2
+                className="lg:px-3! lg:py-3!  md:px-4! md:py-2! md:text-base!
+ lg:text-base!"
+              >
+                {" "}
+                {t("button")}
+              </Button2>
             </Link>
 
             {/* Language Switcher */}
@@ -122,9 +127,10 @@ export default function Header() {
       >
         <div className="flex items-center justify-between p-4 border-b border-[#397a34]/30">
           <span className="font-bold text-lg text-[#397a34]">
-          <div className="mt-4 px-4">
-            <LanguageSwitcher />
-          </div></span>
+            <div className="mt-4 px-4">
+              <LanguageSwitcher />
+            </div>
+          </span>
           <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
             <X className="text-[#397a34]" />
           </Button>
@@ -159,12 +165,8 @@ export default function Header() {
           </div>
 
           <Link href="/programs/form" onClick={() => setOpen(false)}>
-            <Button2 >
-                              {t("button")}
-
-            </Button2>
+            <Button2>{t("button")}</Button2>
           </Link>
-
         </nav>
       </div>
     </>

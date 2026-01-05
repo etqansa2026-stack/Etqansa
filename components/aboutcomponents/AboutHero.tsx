@@ -18,7 +18,7 @@ export default function AboutHero({ isAr }: { isAr: boolean }) {
 
   
 
-      <div className="absolute top-1/2 right-0 transform -rotate-12 -translate-y-1/2 translate-x-1/4 opacity-20 w-40 h-40 md:w-[900px] md:h-[900px] pointer-events-none">
+      <div className="absolute top-1/2 right-0 transform -rotate-12 -translate-y-1/2 translate-x-1/4 opacity-20 w-100 h-full md:w-225  pointer-events-none">
         <Image src={whitelogo} alt="Logo" fill className="object-contain" />
       </div>
     </section>

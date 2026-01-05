@@ -40,9 +40,9 @@ export default async function CourseDetailsPage({ params }: PageProps) {
           />
         )}
         <div className="lg:w-2/3 flex flex-col gap-4">
-          <h1 className="text-4xl font-bold text-gray-800">{course.program_title}</h1>
+          <h1 className="text-4xl font-bold flex flex-row justify-center lg:justify-start text-gray-800">{course.program_title}</h1>
           <p className="text-gray-600">{course.program_description}</p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-4  flex-row justify-center lg:justify-start">
             <Link href="/programs/form">
             <Button2>{isAr ? 'التسجيل الآن' : 'Enroll Now'}</Button2></Link>
             
@@ -71,9 +71,9 @@ export default async function CourseDetailsPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-12 flex flex-col items-center text-center bg-[#2f6f34] text-white rounded-2xl shadow">
-        <h3 className="text-3xl font-bold mb-2">{isAr ? 'هل أنت مستعد للبدء؟' : 'Ready to start?'}</h3>
-        <p className="mb-6">{isAr ? 'انضم الآن وابدأ رحلتك التعليمية.' : 'Join now and start your learning journey.'}</p>
+      <section className="max-w-7xl lg:mx-auto mx-5 px-6 py-12 flex flex-col items-center text-center bg-[#2f6f34] text-white rounded-2xl shadow">
+        <h3 className="text-2xl md:text-3xl font-bold mb-2">{isAr ? 'هل أنت مستعد للبدء؟' : 'Ready to start?'}</h3>
+        <p className="mb-6 text-sm md:text-lg">{isAr ? 'انضم الآن وابدأ رحلتك التعليمية.' : 'Join now and start your learning journey.'}</p>
         <Link href="/programs/form">
         <Button1 >
           {isAr ? 'التسجيل' : 'Enroll Now'}

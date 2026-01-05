@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Button2 from "../ui/Button2";
 import Link from "next/link";
@@ -23,7 +22,7 @@ export default function LearningSection({ locale }: { locale: Locale }) {
   };
 
   return (
-    <section className="bg-white">
+    <section className="bg-green-50">
       <div className="container mx-auto  md:px-6 md:py-28    px-6 py-8">
         <div
           className="

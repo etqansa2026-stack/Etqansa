@@ -7,7 +7,7 @@ import {getProgramsByLocale} from "@/app/server/programs/services"
 
 type Locale = "en" | "ar"
 
-export default async function Page({ params }: { params: { locale: Locale } }) {
+export default async function Page({ params }: { params: Promise<{ locale: Locale } >}) {
   const { locale } =  await params
   const isAr = locale === 'ar'
     const data=await getProgramsByLocale(locale,"life_programs")

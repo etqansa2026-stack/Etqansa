@@ -1,226 +1,249 @@
 import type { Metadata } from "next";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_APP_URL || "http://etqansa.com";
-export const AppName = "Etqan";
-export const APP_DESCRIPTION = "We provide the best engineering office services for residential and commercial projects in Jordan.";
+// Environment & Base Info
+const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+export const SITE_TITLE = "مبادرة إتقان";
+export const SITE_TAGLINE = "مبادرة وطنية لتنمية المهارات وربطها بسوق العمل";
+export const APP_NAME = `${SITE_TITLE} | ${SITE_TAGLINE}`;
 
-// الكلمات المفتاحية العامة
+export const APP_DESCRIPTION =
+  process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
+  "مبادرة وطنية تنموية لتمكين الإنسان السعودي وبناء الكفاءة نحو جيلٍ منتج، مؤهل، وقادر على صناعة مستقبل مشرق. برامج مهنية وحياتية مجانية للشباب بالتعاون مع جهات رسمية ومجتمعية.";
+
 export const COMMON_KEYWORDS = [
-  "Studio One",
-  "Interior Design",
-  "Engineering Office",
-  "Residential Design",
-  "Commercial Projects",
-  "Project Management",
-  "Renovation",
-  "3D Rendering",
-  "Materials Execution",
-  "Luxury Interiors",
+  // English keywords (for international crawling)
+  "Etqan",
+  "Etqan Initiative",
+  "Saudi youth empowerment",
+  "vocational training",
+  "life skills",
+  "workforce readiness",
+  "employability",
+  "career development",
+  "skills training",
+  "youth programs",
+  // Arabic keywords
+  "مبادرة إتقان",
+  "تمكين الشباب",
+  "تأهيل مهني",
+  "تدريب عملي",
+  "المهارات الحياتية",
+  "جاهزية لسوق العمل",
+  "توظيف الشباب",
+  "بناء الكفاءة",
+  "ثقافة العمل",
+  "المسؤولية المجتمعية",
 ] as const;
 
-// الصفحات الثابتة
-export const PAGE_METADATA: Record<string, Metadata> = {
-  home: {
-    title: "Studio One - Interior Design & Engineering Office | Jordan",
-    description: APP_DESCRIPTION,
-    keywords: COMMON_KEYWORDS.join(", "),
-    openGraph: {
-      title: "Studio One - Interior Design & Engineering Office",
-      description: APP_DESCRIPTION,
-      type: "website",
-      siteName: AppName,
-      images: [
-        { url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Home" },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Studio One - Interior Design & Engineering Office",
-      description: APP_DESCRIPTION,
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  about: {
-    title: "About Studio One - Interior Design & Engineering Office",
-    description:
-      "Studio One is a leading interior design and engineering office in Amman, Jordan, providing innovative solutions for residential and commercial projects.",
-    keywords: [...COMMON_KEYWORDS, "About Studio One", "Jordan Interior Design"].join(", "),
-    openGraph: {
-      title: "About Studio One",
-      description:
-        "Leading interior design and engineering office in Jordan for residential and commercial projects.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "About Studio One" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "About Studio One",
-      description:
-        "Leading interior design and engineering office in Jordan for residential and commercial projects.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  services: {
-    title: "Services - Studio One | Interior Design & Engineering",
-    description: "Explore the range of services offered by Studio One, from interior design to project management and execution.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Services", "Interior Design Services"].join(", "),
-    openGraph: {
-      title: "Services - Studio One",
-      description: "Professional interior design and engineering services in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Services" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Services - Studio One",
-      description: "Professional interior design and engineering services in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  projects: {
-    title: "Projects - Studio One | Interior Design & Engineering",
-    description: "Browse our recent projects showcasing residential and commercial interior design and engineering solutions.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Projects", "Interior Design Projects"].join(", "),
-    openGraph: {
-      title: "Projects - Studio One",
-      description: "Residential and commercial projects by Studio One in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Projects" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Projects - Studio One",
-      description: "Residential and commercial projects by Studio One in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  contact: {
-    title: "Contact Studio One | Interior Design & Engineering",
-    description: "Get in touch with Studio One to start your interior design or engineering project in Jordan.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Contact", "Interior Design Contact"].join(", "),
-    openGraph: {
-      title: "Contact Studio One",
-      description: "Reach out to Studio One for interior design and engineering services in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Contact" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Contact Studio One",
-      description: "Reach out to Studio One for interior design and engineering services in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  mission: {
-    title: "Mission & Vision - Studio One | Interior Design & Engineering",
-    description: "Studio One aims to create exceptional interior spaces that blend aesthetics, functionality, and innovation.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Mission", "Studio One Vision"].join(", "),
-    openGraph: {
-      title: "Mission & Vision - Studio One",
-      description: "Studio One's mission is to deliver tailored interior design solutions that reflect clients’ unique vision and lifestyle.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Mission" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Mission & Vision - Studio One",
-      description: "Studio One's mission is to deliver tailored interior design solutions that reflect partners unique vision and lifestyle.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-};
-
-// Metadata ديناميكي للمشاريع والخدمات
-export const generateDynamicMetadata = {
-  project: (project: { id: string; name: string; description?: string; image?: string }): Metadata => {
-    const description =
-      project.description ||
-      `Explore Studio One's project "${project.name}" showcasing innovative interior design and engineering solutions.`;
-
-    return {
-      title: `${project.name} | Project - Studio One`,
-      description,
-      keywords: ["Studio One", "Interior Design", "Engineering", project.name, "Project"].join(", "),
-      openGraph: {
-        title: `${project.name} | Studio One Project`,
-        description,
-        type: "website",
-        siteName: AppName,
-        images: [
-          { url: project.image || `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: project.name },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: `${project.name} | Studio One Project`,
-        description,
-        images: [project.image || `${SERVER_URL}/logo-open-graph.png`],
-      },
-    };
-  },
-
-  service: (service: { id: string; name: string; description?: string; image?: string }): Metadata => {
-    const description =
-      service.description ||
-      `Learn more about Studio One's service "${service.name}" offering professional interior design and engineering solutions.`;
-
-    return {
-      title: `${service.name} | Service - Studio One`,
-      description,
-      keywords: ["Studio One", "Interior Design", "Engineering", service.name, "Service"].join(", "),
-      openGraph: {
-        title: `${service.name} | Studio One Service`,
-        description,
-        type: "website",
-        siteName: AppName,
-        images: [
-          { url: service.image || `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: service.name },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: `${service.name} | Studio One Service`,
-        description,
-        images: [service.image || `${SERVER_URL}/logo-open-graph.png`],
-      },
-    };
-  },
-};
-
-// ROOT_METADATA عام لجميع الصفحات
-export const ROOT_METADATA: Metadata = {
-  title: { default: AppName, template: `%s - ${AppName}` },
+// Home (Single page / landing)
+export const HOME_METADATA: Metadata = {
+  title: APP_NAME,
   description: APP_DESCRIPTION,
-  metadataBase: new URL(SERVER_URL),
+  keywords: COMMON_KEYWORDS.join(", "),
+  metadataBase: new URL(SITE_URL),
+
+  openGraph: {
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    type: "website",
+    locale: "ar-SA",
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — مبادرة وطنية لتأهيل الشباب`,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    images: [`${SITE_URL}/Logo.png`],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+};
+
+// About page
+export const ABOUT_METADATA: Metadata = {
+  title: `${SITE_TITLE} — من نحن`,
+  description:
+    "مبادرة إتقان: مبادرة وطنية لتنمية المهارات وتأهيل الشباب السعودي مهنياً وسلوكياً، وربط الكفاءات بسوق العمل من خلال برامج مجانية وفرص توظيف.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — من نحن`,
+    description:
+      "تعرف على رؤية ورسالة مبادرة إتقان، أهدافها وطريقة العمل في تمكين الشباب السعودي وربط التدريب بسوق العمل.",
+    url: `${SITE_URL}/about`,
+    siteName: SITE_TITLE,
+    locale: "ar-SA",
+    type: "article",
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — من نحن`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — من نحن`,
+    description:
+      "تعرف على رؤية ورسالة مبادرة إتقان وطرق دعمها لتنمية المهارات وربطها بسوق العمل.",
+  },
+};
+
+// Mission & Vision page
+export const MISSION_VISION_METADATA: Metadata = {
+  title: `${SITE_TITLE} — الرؤية والرسالة`,
+  description:
+    "الرؤية: تمكين الأفراد لبناء مستقبل مهني وحياتي مستدام. الرسالة: تأهيل المشاركين عبر برامج مهنية وحياتية تربط التدريب باحتياجات سوق العمل وتعزز الاعتماد على الذات.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — الرؤية والرسالة`,
+    description:
+      "تفاصيل الرؤية والرسالة التي توجه برامج مبادرة إتقان في تأهيل الشباب وربطهم بسوق العمل.",
+    url: `${SITE_URL}/mission-vision`,
+    siteName: SITE_TITLE,
+    locale: "ar-SA",
+    type: "article",
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — الرؤية والرسالة`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — الرؤية والرسالة`,
+    description:
+      "اكتشف رؤية مبادرة إتقان ورسالتها في تمكين الشباب وبناء مستقبل مهني مستدام.",
+  },
+};
+
+// Life Program page
+export const LIFE_PROGRAM_METADATA: Metadata = {
+  title: `${SITE_TITLE} — البرامج الحياتية`,
+  description:
+    "برامج حياتية مجانية تهدف إلى تنمية المهارات الشخصية والسلوكية لدى الشباب السعودي لتعزيز جاهزيتهم للحياة المهنية والمجتمعية.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — البرامج الحياتية`,
+    description:
+      "تفاصيل البرامج الحياتية في مبادرة إتقان: مهارات سلوكية، تنمية ذاتية، تهيئة لسوق العمل، وورش تطبيقية مجانية.",
+    url: `${SITE_URL}/life-programs`,
+    siteName: SITE_TITLE,
+    locale: "ar-SA",
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — البرامج الحياتية`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — البرامج الحياتية`,
+    description:
+      "ورش وبرامج حياتية لتنمية المهارات الشخصية والسلوكية لشباب السعودية بالمجان.",
+  },
+};
+
+// Professional Program page
+export const PROFESSIONAL_PROGRAM_METADATA: Metadata = {
+  title: `${SITE_TITLE} — البرامج المهنية`,
+  description:
+    "برامج مهنية تطبيقية تركز على اكتساب مهارات عملية وتقنية مرتبطة باحتياجات سوق العمل لرفع فرص التوظيف.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — البرامج المهنية`,
+    description:
+      "البرامج المهنية في مبادرة إتقان: تدريب تطبيقي، تعليم مهني، وربط الخريجين بفرص التوظيف والمؤتمرات.",
+    url: `${SITE_URL}/professional-programs`,
+    siteName: SITE_TITLE,
+    locale: "ar-SA",
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — البرامج المهنية`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — البرامج المهنية`,
+    description:
+      "برامج مهنية تطبيقية تسهل انتقال المتدربين لسوق العمل عبر روابط مع جهات توظيفية وملتقيات عرض المهارات.",
+  },
+};
+
+// Root / Global metadata (app layout)
+export const ROOT_METADATA: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: APP_NAME,
+  description: APP_DESCRIPTION,
   icons: {
-    icon: `${SERVER_URL}/favicon.ico`,
-    shortcut: `${SERVER_URL}/favicon.ico`,
-    apple: `${SERVER_URL}/favicon.ico`,
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    title: AppName,
+    locale: "ar-SA",
+    title: APP_NAME,
     description: APP_DESCRIPTION,
-    siteName: AppName,
-    url: SERVER_URL,
-    images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: AppName }],
+    siteName: SITE_TITLE,
+    url: SITE_URL,
+    images: [
+      {
+        url: `${SITE_URL}/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: SITE_TITLE,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@StudioOne",
-    creator: "@StudioOne",
-    title: AppName,
+    title: APP_NAME,
     description: APP_DESCRIPTION,
-    images: [`${SERVER_URL}/logo-open-graph.png`],
+    images: [`${SITE_URL}/Logo.png`],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };

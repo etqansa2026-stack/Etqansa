@@ -16,11 +16,11 @@ export default function ProfessionalHero({ isAr }: { isAr: boolean }) {
             : "Specialized applied programs that qualify participants for professions, trades, and technical skills in demand in the labor market, delivered within accredited training workshops and under the supervision of specialists."}
         </p>
       </div>
-        <div className="absolute top-1/2 right-1/2 transform  -translate-y-1/2 translate-x-1/2 opacity-20 w-40 h-40 md:w-[400px] md:h-[400px] pointer-events-none">
+        <div className="absolute top-1/2 right-1/2 transform  -translate-y-1/2 translate-x-1/2 opacity-20 w-100 h-full md:w-120  pointer-events-none">
         <Image src={ETQAN} alt="Logo" fill className="object-contain" />
       </div>
 
-      <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute -top-24 -right-24 w-125 h-125 bg-white/10 rounded-full blur-3xl" />
     </section>
   )
 }

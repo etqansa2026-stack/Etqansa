@@ -1,5 +1,4 @@
 import { getApplicationById } from "@/app/server/applications/services";
-import { getProgramNameAndIdById } from "@/app/server/programs/services";
 import ApplicationDetailsClient from "@/components/aplications/ApplicationDetails";
 
 interface Props {
