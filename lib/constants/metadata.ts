@@ -213,9 +213,9 @@ export const ROOT_METADATA: Metadata = {
   title: APP_NAME,
   description: APP_DESCRIPTION,
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: `${SITE_URL}/favicon.ico`,
+    shortcut: `${SITE_URL}/favicon.ico`,
+    apple: `${SITE_URL}/logo.png`,
   },
   openGraph: {
     type: "website",
