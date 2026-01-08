@@ -13,22 +13,25 @@ export default function ProfessionalHero({ isAr }: { isAr: boolean }) {
 
     const items = sectionRef.current.querySelectorAll("h1, p");
 
+    // الحالة الابتدائية للنصوص
     gsap.set(items, { opacity: 0, y: 30 });
 
     const observer = new IntersectionObserver(
       ([entry], observer) => {
         if (entry.isIntersecting) {
+          // انيميشن النصوص فقط
           gsap.to(items, {
             opacity: 1,
             y: 0,
             duration: 0.8,
             ease: "power3.out",
-            stagger: 0.2, 
+            stagger: 0.2,
           });
+
           observer.disconnect();
         }
       },
-      { threshold: 0.3 } 
+      { threshold: 0.25 } // زي LifeHero
     );
 
     observer.observe(sectionRef.current);
@@ -53,8 +56,15 @@ export default function ProfessionalHero({ isAr }: { isAr: boolean }) {
         </p>
       </div>
 
-      <div className="absolute top-1/2 right-1/2 transform -translate-y-1/2 translate-x-1/2 opacity-20 w-100 h-full md:w-120 pointer-events-none">
-        <Image src={ETQAN} alt="Logo" fill className="object-contain" />
+      {/* شعار الخلفية بشفافية بدون انيميشن */}
+      <div className="absolute top-1/2 right-1/2 transform -translate-y-1/2 translate-x-1/2 opacity-20 pointer-events-none w-100 h-full md:w-120">
+        <Image
+          src={ETQAN}
+          alt="Logo"
+          fill
+          className="object-contain"
+          priority
+        />
       </div>
 
       <div className="absolute -top-24 -right-24 w-125 h-125 bg-white/10 rounded-full blur-3xl" />

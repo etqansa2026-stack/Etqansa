@@ -13,7 +13,7 @@ export default function HeroSection({ isAr }: { isAr: boolean }) {
 
     const title = sectionRef.current.querySelector("h1");
 
-    // إعداد الحالة الابتدائية
+    // الحالة الابتدائية للنص
     gsap.set(title, { opacity: 0, y: 30 });
 
     const observer = new IntersectionObserver(
@@ -28,7 +28,7 @@ export default function HeroSection({ isAr }: { isAr: boolean }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 } // يبدأ عند ظهور 30% من الهيرو
+      { threshold: 0.3 }
     );
 
     observer.observe(sectionRef.current);
@@ -48,7 +48,13 @@ export default function HeroSection({ isAr }: { isAr: boolean }) {
       </div>
 
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <Image src={whitelogo2} alt="Logo" fill className="object-contain" />
+        <Image
+          src={whitelogo2}
+          alt="Logo"
+          fill
+          className="object-contain"
+          priority // تحميل مسبق بدون blur
+        />
       </div>
     </section>
   );

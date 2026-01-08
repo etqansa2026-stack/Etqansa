@@ -50,7 +50,13 @@ export default function AboutHero({ isAr }: { isAr: boolean }) {
       </div>
 
       <div className="absolute top-1/2 right-0 transform -rotate-12 -translate-y-1/2 translate-x-1/4 opacity-20 w-100 h-full md:w-225 pointer-events-none">
-        <Image src={whitelogo} alt="Logo" fill className="object-contain" />
+        <Image
+          src={whitelogo}
+          alt="Logo"
+          fill
+          className="object-contain"
+          priority // تحميل مسبق بدون blur
+        />
       </div>
     </section>
   );
