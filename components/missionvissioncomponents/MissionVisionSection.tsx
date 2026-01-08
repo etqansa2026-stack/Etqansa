@@ -1,6 +1,13 @@
-import {  FiTarget } from "react-icons/fi";
+"use client";
+
+import { FiTarget } from "react-icons/fi";
 import { FaRegEye } from "react-icons/fa";
 import { ScrollText } from "lucide-react";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
   const sections = [
@@ -22,16 +29,33 @@ export default function MissionVisionSection({ isAr }: { isAr: boolean }) {
 
   const iconBgColor = "#FDE68A30";
 
+  useEffect(() => {
+    const cards = gsap.utils.toArray(".mission-card");
+    gsap.set(cards, { y: 50, opacity: 0 });
+
+    gsap.to(cards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.7,
+      ease: "linear",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".mission-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <section className=" md:px-6 md:py-28    px-6 py-8 bg-[#6ab742]/10">
-     
+    <section className="md:px-6 md:py-28 px-6 py-8 bg-[#6ab742]/10 mission-section">
       <div className="flex flex-wrap justify-center gap-10 px-4">
         {sections.map((section, i) => {
           const Icon = section.icon;
           return (
             <div
               key={i}
-              className="flex-1 min-w-[280px] max-w-md p-8 rounded-3xl shadow-lg flex flex-col items-center text-center gap-4 transform transition hover:-translate-y-2 hover:scale-105 bg-white"
+              className="mission-card flex-1 min-w-[280px] max-w-md p-8 rounded-3xl shadow-lg flex flex-col items-center text-center gap-4 bg-white"
             >
               <div
                 className="p-5 rounded-full mb-5"

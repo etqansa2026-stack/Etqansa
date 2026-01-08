@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
+
 const reasons = [
   {
     titleEn: "Practical Skills",
@@ -17,27 +22,55 @@ const reasons = [
     descEn: "Programs designed to boost your career.",
     descAr: "برامج تساعدك على التقدم في حياتك المهنية.",
   },
-]
+];
 
 export default function WhyChooseProfessionalPrograms({
   isAr,
 }: {
-  isAr: boolean
+  isAr: boolean;
 }) {
+  useEffect(() => {
+    const section = document.querySelector(".why-professional-section");
+    const items = section?.querySelectorAll(".why-professional-item");
+    if (!section || !items?.length) return;
+
+    gsap.set(items, { y: 50, opacity: 0 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          gsap.to(items, {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.2,
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#6ab742]/10 py-24">
+    <section className="bg-[#6ab742]/10 py-24 why-professional-section">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl centert md:text-4xl font-extrabold text-center mb-14 text-[#397a34]">
+        <h2 className="text-3xl centert md:text-4xl font-extrabold text-center mb-14 text-[#397a34] why-professional-item">
           {isAr
             ? "لماذا تختار البرامج الاحترافية"
             : "Why Choose Professional Programs"}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {reasons.map(item => (
+          {reasons.map((item) => (
             <div
               key={isAr ? item.titleAr : item.titleEn}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition border border-black/10"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition border border-black/10 why-professional-item"
             >
               <h3 className="font-bold text-xl mb-3 text-[#397a34]">
                 {isAr ? item.titleAr : item.titleEn}
@@ -50,5 +83,5 @@ export default function WhyChooseProfessionalPrograms({
         </div>
       </div>
     </section>
-  )
+  );
 }

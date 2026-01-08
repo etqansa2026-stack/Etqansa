@@ -1,22 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { gsap } from "gsap";
 
 import LanguageSwitcher from "@/components/language-switcher";
 import { Button } from "@/components/ui/button";
 import Button2 from "@/components/ui/Button2";
-
 import Logo from "@/public/Logo.png";
-import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("Navbar");
-
   const pathname = usePathname();
 
   const navItems = [
@@ -30,23 +28,33 @@ export default function Header() {
     { key: "program2", href: "/programs/life-programs" },
   ];
 
+  useEffect(() => {
+    gsap.to(".nav-animate", {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
     <>
-      {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-background/95 backdrop-blur px-5">
         <nav className="container mx-auto flex h-20 items-center justify-between px-6">
-          {/* Logo */}
           <Link
             href="/"
-            className="flex items-center text-2xl font-extrabold tracking-tight text-primary shrink-0"
+            className="flex items-center text-2xl font-extrabold tracking-tight text-primary shrink-0 nav-animate opacity-0 -translate-y-5"
           >
             <img src={Logo.src} alt="Logo" width={40} height={40} />
           </Link>
 
-          {/* Desktop Nav */}
           <ul className="hidden md:flex items-center gap-4 lg:gap-10">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li
+                key={item.href}
+                className="nav-animate opacity-0 -translate-y-5"
+              >
                 <Link
                   href={item.href}
                   className={`text-sm font-medium transition-colors px-2 py-2 ${
@@ -60,7 +68,7 @@ export default function Header() {
               </li>
             ))}
 
-            <li className="relative group">
+            <li className="relative group nav-animate opacity-0 -translate-y-5">
               <span className="flex items-center gap-1 cursor-pointer text-sm font-medium text-muted-foreground px-2 py-2 hover:text-primary">
                 {t("programs")}
                 <ChevronDown className="h-4 w-4" />
@@ -80,29 +88,24 @@ export default function Header() {
             </li>
           </ul>
 
-          {/* Right Section */}
           <div className="flex items-center gap-4 md:gap-6">
-            {/* Enroll Button */}
-            <Link href="/programs/form" className="hidden md:inline-flex">
-              <Button2
-                className="lg:px-3! lg:py-3!  md:px-4! md:py-2! md:text-base!
- lg:text-base!"
-              >
-                {" "}
+            <Link
+              href="/programs/form"
+              className="hidden md:inline-flex nav-animate opacity-0 -translate-y-5"
+            >
+              <Button2 className="lg:px-3! lg:py-3!  md:px-4! md:py-2! md:text-base! lg:text-base!">
                 {t("button")}
               </Button2>
             </Link>
 
-            {/* Language Switcher */}
-            <div className="hidden md:inline-flex">
+            <div className="hidden md:inline-flex nav-animate opacity-0 -translate-y-5">
               <LanguageSwitcher />
             </div>
 
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden nav-animate opacity-0 -translate-y-5"
               onClick={() => setOpen(true)}
             >
               <Menu />
@@ -111,15 +114,8 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile Overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 bg-black/20"
-          onClick={() => setOpen(false)}
-        />
-      )}
+      {open && <div className="fixed inset-0 z-50 bg-black/20" onClick={() => setOpen(false)} />}
 
-      {/* Mobile Drawer */}
       <div
         className={`fixed top-0 right-0 z-50 h-full w-72 bg-green-50 shadow-xl transform transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
@@ -157,7 +153,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-6 py-3 text-sm text-[#397a34]  hover:bg-green-100 transition-colors"
+                className="block rounded-lg px-6 py-3 text-sm text-[#397a34] hover:bg-green-100 transition-colors"
               >
                 {t(item.key)}
               </Link>

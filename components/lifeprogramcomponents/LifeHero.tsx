@@ -1,11 +1,43 @@
-import Image from "next/image"
-import ETQAN from "@/public/ETQAN.png"
+"use client";
 
+import Image from "next/image";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import ETQAN from "@/public/ETQAN.png";
 
 export default function LifeHero({ isAr }: { isAr: boolean }) {
+  useEffect(() => {
+    const hero = document.querySelector(".life-hero-content");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            hero.children,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              stagger: 0.2,
+            }
+          );
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative bg-[#397a34] text-white py-32 overflow-hidden">
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 life-hero-content">
         <h1 className="text-4xl centert md:text-5xl font-extrabold mb-6">
           {isAr ? "المسار الحياتي" : "Life Programs"}
         </h1>
@@ -16,12 +48,12 @@ export default function LifeHero({ isAr }: { isAr: boolean }) {
             : "Programs focused on character building, developing behavioral and cognitive skills, and enhancing psychological and social readiness. These programs include communication skills, critical thinking, stress management, planning, and adaptability."}
         </p>
       </div>
-             <div className="absolute top-1/2 right-1/2 transform  -translate-y-1/2 translate-x-1/2 opacity-20 w-40 h-full md:w-100  pointer-events-none">
-              <Image src={ETQAN} alt="Logo" fill className="object-contain" />
-            </div>
-      
+
+      <div className="absolute top-1/2 right-1/2 transform -translate-y-1/2 translate-x-1/2 opacity-20 w-40 h-full md:w-100 pointer-events-none">
+        <Image src={ETQAN} alt="Logo" fill className="object-contain" />
+      </div>
 
       <div className="absolute -top-24 -right-24 w-125 h-125 bg-white/10 rounded-full blur-3xl" />
     </section>
-  )
+  );
 }

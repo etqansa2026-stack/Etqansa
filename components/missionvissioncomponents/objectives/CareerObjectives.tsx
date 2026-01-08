@@ -1,5 +1,12 @@
-import {  FiBriefcase, FiShield, FiTrendingUp } from "react-icons/fi";
+"use client";
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { FiBriefcase, FiShield, FiTrendingUp } from "react-icons/fi";
 import { MdEngineering } from "react-icons/md";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CareerObjectives({ isAr }: { isAr: boolean }) {
   const items = isAr
@@ -19,8 +26,26 @@ export default function CareerObjectives({ isAr }: { isAr: boolean }) {
   const colors = ["#FFFFFF", "#f0fdf4", "#FFFFFF", "#f0fdf4"];
   const icons = [MdEngineering, FiBriefcase, FiShield, FiTrendingUp];
 
+  useEffect(() => {
+    const cards = gsap.utils.toArray(".career-objective-card");
+    gsap.set(cards, { y: 50, opacity: 0 });
+
+    gsap.to(cards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "linear",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".career-objectives-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <section className="bg-green-50  md:px-6 md:py-28    px-6 py-8">
+    <section className="bg-green-50 md:px-6 md:py-28 px-6 py-8 career-objectives-section">
       <h2 className="text-3xl centert md:text-4xl font-bold text-center mb-12 text-[#397a34]">
         {isAr ? "الأهداف المهنية" : "Career Objectives"}
       </h2>
@@ -31,7 +56,7 @@ export default function CareerObjectives({ isAr }: { isAr: boolean }) {
           return (
             <div
               key={i}
-              className="flex-1 min-w-[220px] max-w-xs p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transform transition hover:-translate-y-2 hover:scale-105"
+              className="career-objective-card flex-1 min-w-[220px] max-w-xs p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transform transition hover:-translate-y-2 hover:scale-105"
               style={{ backgroundColor: colors[i] }}
             >
               <Icon className="text-4xl mb-4 text-[#397a34]" />

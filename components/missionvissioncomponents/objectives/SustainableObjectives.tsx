@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
   FiGlobe,
   FiCheckCircle,
@@ -6,6 +11,8 @@ import {
   FiTrendingUp,
   FiBriefcase,
 } from "react-icons/fi";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function WorkMethodology({ isAr }: { isAr: boolean }) {
   const items = isAr
@@ -37,8 +44,29 @@ export default function WorkMethodology({ isAr }: { isAr: boolean }) {
 
   const colors = ["#FFFFFF", "#f0fdf4"];
 
+  useEffect(() => {
+    const cards = gsap.utils.toArray(".work-method-card");
+    gsap.set(cards, { y: 50, opacity: 0 });
+
+    gsap.to(cards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "linear",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".work-method-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <section className="bg-green-50  md:px-6 md:py-28    px-6 py-8" dir={isAr ? "rtl" : "ltr"}>
+    <section
+      className="bg-green-50 md:px-6 md:py-28 px-6 py-8 work-method-section"
+      dir={isAr ? "rtl" : "ltr"}
+    >
       <h2 className="text-3xl md:text-4xl centert font-bold text-center mb-6 text-[#397a34]">
         {isAr ? "منهجية العمل" : "Work Methodology"}
       </h2>
@@ -55,7 +83,7 @@ export default function WorkMethodology({ isAr }: { isAr: boolean }) {
           return (
             <div
               key={i}
-              className="flex-1 min-w-[220px] max-w-xs p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transform transition hover:-translate-y-2 hover:scale-105"
+              className="work-method-card flex-1 min-w-[220px] max-w-xs p-6 rounded-3xl shadow-lg flex flex-col items-center text-center transform transition hover:-translate-y-2 hover:scale-105"
               style={{ backgroundColor: colors[i % colors.length] }}
             >
               <Icon className="text-4xl mb-4 text-[#397a34]" />
