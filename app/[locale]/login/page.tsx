@@ -39,7 +39,7 @@ const Login = () => {
 
       if (result?.ok) {
         toast.success("Logged In Successfully")
-       router.push("/")
+       router.push("/admin/dashboard")
        return
        
       }
@@ -56,7 +56,7 @@ const Login = () => {
     const result=  await signIn("google", { redirect:false });
    if (result?.ok) {
         toast.success("Logged In Successfully")
-       router.push("/")
+       router.push("/admin/dashboard")
        return
        
       }
