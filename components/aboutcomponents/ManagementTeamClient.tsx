@@ -90,7 +90,6 @@ export default function ManagementTeamClient({ members, isAr, locale }: Manageme
           </div>
         ))}
       </div>
-      {members[0].name}
     </section>
   );
 }
