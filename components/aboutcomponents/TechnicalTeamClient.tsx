@@ -3,65 +3,42 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import TechnicalTeamMemberCard from "./TechnicalTeamMemberCard";
-import { TranslatedMember } from "@/types/index"; // استورد النوع الصحيح
+import { TranslatedMember } from "@/types/index";
+import LifeProgramSection from "./LifeProgramSection";
+import ProfessionalProgramsSection from "./ProfessionalProgramsSection";
 
 interface TechnicalTeamClientProps {
-  team: TranslatedMember[]; // النوع الصحيح
+  initialProfessionalProgramsTeam: TranslatedMember[];
+  initialLifeProgramsTeam: TranslatedMember[];
+  lifeProgramCount: number;
+  proProgramCount: number;
   isAr: boolean;
   locale: "ar" | "en";
 }
 
-export default function TechnicalTeamClient({ team, isAr, locale }: TechnicalTeamClientProps) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current || team.length === 0) return;
-
-    const items = sectionRef.current.querySelectorAll(".technical-item");
-
-    // إعداد الحالة الابتدائية للأنيميشن
-    gsap.set(items, { y: 30, opacity: 0 });
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          gsap.to(items, {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.15,
-          });
-          observer.disconnect(); // فقط مرة واحدة
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, [team]);
-
+export default function TechnicalTeamClient({
+  initialProfessionalProgramsTeam,
+  initialLifeProgramsTeam,
+  lifeProgramCount,
+  proProgramCount,
+  locale,
+}: TechnicalTeamClientProps) {
   return (
     <section className="bg-green-50">
-      <section className="container mx-auto px-6 py-28">
-        <h2 className="text-3xl font-bold centert text-[#397a34] mb-16 ">
-          {isAr ? "الفريق الفني" : "Technical Team"}
-        </h2>
-
-        <div className="flex flex-wrap justify-center gap-8">
-          {team.map((member) => (
-            <div
-              key={member.id}
-              className="technical-item opacity-100 flex-1 min-w-[320px] max-w-xs technical-item"
-            >
-              <TechnicalTeamMemberCard data={member} locale={locale} />
-            </div>
-          ))}
-        </div>
-      </section>
+      {proProgramCount > 0 && (
+        <ProfessionalProgramsSection
+          locale={locale}
+          proProgramCount={proProgramCount}
+          initialProfessionalProgramsTeam={initialProfessionalProgramsTeam}
+        />
+      )}
+      {lifeProgramCount > 0 && (
+        <LifeProgramSection
+          locale={locale}
+          lifeProgramCount={lifeProgramCount}
+          initialLifeProgramsTeam={initialLifeProgramsTeam}
+        />
+      )}
     </section>
   );
 }

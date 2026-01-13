@@ -143,13 +143,19 @@ export type NewMember = {
   image: string | null;
 };
 
-export type TranslatedMember = {
+export type TranslatedMemberFounders = {
   id?: string;
   name: string;
   description: string | null;
   position: string;
   display_order?: number | null | undefined;
   member_type: "founder" | "life_programs" | "professional_programs" | null;
+  image: string | null;
+};
+
+export type TranslatedMember = {
+  name: string;
+  position: string;
   image: string | null;
 };
 

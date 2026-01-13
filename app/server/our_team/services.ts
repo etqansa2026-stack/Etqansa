@@ -1,3 +1,4 @@
+
 import prisma from "@/lib/prisma";
 import { NewMember } from "@/types/index";
 import { revalidateTag, unstable_cache } from "next/cache";
@@ -177,9 +178,55 @@ export const getMemberNameIdAndImage = async () => {
   }
 };
 
-
-
 type MemberType = "founder" | "life_programs" | "professional_programs"
+
+
+
+export const getmembersByTypePagAndLocale = async (
+  member_type: MemberType,
+  page: number,
+  locale: Locale
+) => {
+  const LIMIT = 8;
+  const skip = (page - 1) * LIMIT;
+
+  try {
+    // Total number of members for this type
+    const membersCount = await prisma.our_team.count({ where: { member_type } });
+
+    // Fetch members for the current page
+    const result = await prisma.our_team.findMany({
+      where: { member_type },
+      orderBy: { display_order: "asc" },
+      skip,
+      take: LIMIT,
+    });
+
+    const membersByLocale = result.map(member => ({
+      name: locale === "en" ? member.name_en : member.name_ar,
+      position: locale === "en" ? member.position_en : member.position_ar,
+      image: member.image,
+    }));
+
+    return {
+      totalCount: membersCount,
+      data: membersByLocale,
+      message: `${membersByLocale.length} Members have been fetched`,
+      status: 200,
+    };
+  } catch (error) {
+    console.error("Error fetching members:", error);
+    return {
+      data: [],
+      message: "Error in fetching members",
+      status: 500,
+    };
+  }
+};
+
+
+
+
 
 export const getMembersByTypeAndLocale = async (
   locale: Locale,

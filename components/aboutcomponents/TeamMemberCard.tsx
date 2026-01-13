@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import TeamMemberDialog from "./TeamMemberDialog";
-import { TranslatedMember } from "@/types";
+import { TranslatedMemberFounders } from "@/types";
 import Image from "next/image";
 type Props = {
-  data: TranslatedMember;
+  data: TranslatedMemberFounders;
   locale: string;
 };
 

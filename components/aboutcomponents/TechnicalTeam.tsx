@@ -1,13 +1,28 @@
 // TechnicalTeamServer.tsx
 import TechnicalTeamClient from "@/components/aboutcomponents/TechnicalTeamClient";
-import { getMembersByTypeAndLocale } from "@/app/server/our_team/services";
+import { getmembersByTypePagAndLocale } from "@/app/server/our_team/services";
 
 export default async function TechnicalTeam({ isAr }: { isAr: boolean }) {
   const locale = isAr ? "ar" : "en";
-  const lifeProgramsMembers = (await getMembersByTypeAndLocale(locale, "life_programs")).data ?? [];
-  const professionalProgramsMembers = (await getMembersByTypeAndLocale(locale, "professional_programs")).data ?? [];
+  const lifeProgramsMembers = await getmembersByTypePagAndLocale(
+    "life_programs",
+    1,
+    locale
+  );
+  const professionalProgramsMembers = await getmembersByTypePagAndLocale(
+    "professional_programs",
+    1,
+    locale
+  );
 
-  const team = [...lifeProgramsMembers, ...professionalProgramsMembers];
-
-  return <TechnicalTeamClient team={team} isAr={isAr} locale={locale} />;
+  return (
+    <TechnicalTeamClient
+      initialLifeProgramsTeam={lifeProgramsMembers.data}
+      lifeProgramCount={lifeProgramsMembers.totalCount!}
+      proProgramCount={professionalProgramsMembers.totalCount!}
+      initialProfessionalProgramsTeam={professionalProgramsMembers.data}
+      isAr={isAr}
+      locale={locale}
+    />
+  );
 }
