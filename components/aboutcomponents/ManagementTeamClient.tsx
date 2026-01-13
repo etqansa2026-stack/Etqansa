@@ -76,7 +76,7 @@ export default function ManagementTeamClient({ members, isAr, locale }: Manageme
 
   return (
     <section ref={sectionRef} className="container mx-auto px-6 py-28">
-      <h2 className="text-3xl font-bold text-[#397a34] mb-16">
+      <h2 className="text-3xl font-bold text-[#397a34] mb-16 flex flex-row justify-center">
         {isAr ? "الفريق الإداري" : "Management Team"}
       </h2>
 
@@ -90,6 +90,7 @@ export default function ManagementTeamClient({ members, isAr, locale }: Manageme
           </div>
         ))}
       </div>
+      {members[0].name}
     </section>
   );
 }
