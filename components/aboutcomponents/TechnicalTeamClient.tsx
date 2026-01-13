@@ -46,8 +46,8 @@ export default function TechnicalTeamClient({ team, isAr, locale }: TechnicalTea
 
   return (
     <section className="bg-green-50">
-      <section ref={sectionRef} className="container mx-auto px-6 py-28">
-        <h2 className="text-3xl font-bold centert text-[#397a34] mb-16 technical-item">
+      <section className="container mx-auto px-6 py-28">
+        <h2 className="text-3xl font-bold centert text-[#397a34] mb-16 ">
           {isAr ? "الفريق الفني" : "Technical Team"}
         </h2>
 
@@ -55,7 +55,7 @@ export default function TechnicalTeamClient({ team, isAr, locale }: TechnicalTea
           {team.map((member) => (
             <div
               key={member.id}
-              className="technical-item flex-1 min-w-[320px] max-w-xs"
+              className="technical-item opacity-100 flex-1 min-w-[320px] max-w-xs technical-item"
             >
               <TechnicalTeamMemberCard data={member} locale={locale} />
             </div>
