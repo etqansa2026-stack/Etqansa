@@ -95,7 +95,7 @@ export default function LifeProgramSection({
   return (
     <section className="bg-green-50">
       <section ref={sectionRef} className="container mx-auto px-6 py-28">
-        <h2 className="text-3xl font-bold text-center text-[#397a34] mb-16 flex flex-row justify-center">
+        <h2 className="  text-2xl md:text-3xl font-bold text-center text-[#397a34] mb-16 flex flex-row justify-center">
           {isAr ? "مدربو البرامج الحياتية" : "Life Program Trainers"}
         </h2>
 
