@@ -5,6 +5,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 export const SITE_TITLE = "مبادرة إتقان";
 export const SITE_TAGLINE = "مبادرة وطنية لتنمية المهارات وربطها بسوق العمل";
 export const APP_NAME = `${SITE_TITLE} | ${SITE_TAGLINE}`;
+export const HOME_DESCRIPTION=
+  "مبادرة إتقان هي مبادرة وطنية سعودية لتنمية المهارات وتأهيل الشباب وربطهم بسوق العمل عبر برامج مهنية وحياتية مجانية."
 
 export const APP_DESCRIPTION =
   process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
@@ -38,7 +40,7 @@ export const COMMON_KEYWORDS = [
 // Home (Single page / landing)
 export const HOME_METADATA: Metadata = {
   title: APP_NAME,
-  description: APP_DESCRIPTION,
+  description: HOME_DESCRIPTION,
   keywords: COMMON_KEYWORDS.join(", "),
   metadataBase: new URL(SITE_URL),
 
@@ -216,6 +218,7 @@ export const ROOT_METADATA: Metadata = {
     icon: `${SITE_URL}/favicon.ico`,
     shortcut: `${SITE_URL}/favicon.ico`,
     apple: `${SITE_URL}/logo.png`,
+    
   },
   openGraph: {
     type: "website",
