@@ -6,6 +6,7 @@ import { FolderOpen } from "lucide-react";
 import { getProgramNameAndIdById } from "@/app/server/programs/services";
 import ApplicationsFilter from "@/components/aplications/ApplicationsFilter";
 import { ApplicationsDataTable } from "@/components/Applications-data-table";
+import { notFound } from "next/navigation";
 
 interface Props {
   searchParams: Promise<{
@@ -19,10 +20,11 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-async function page({ params, searchParams }: Props) {
+async function Page({ params, searchParams }: Props) {
   const id = (await params).id;
   const searchParamsData = await searchParams;
   const page = Number(searchParamsData.page ?? 1);
+
   const filters = {
     programId: id,
     gender: searchParamsData.gender ?? null,
@@ -32,15 +34,22 @@ async function page({ params, searchParams }: Props) {
     applicationId: searchParamsData.applicationId ?? null,
   };
 
-  const programDetails = (await getProgramNameAndIdById(id)).data;
+  const programResult = await getProgramNameAndIdById(id);
 
+  // ❌ Stop rendering if the program doesn't exist
+  if (!programResult || !programResult.data) {
+    notFound();
+  }
+
+  const programDetails = programResult.data;
   const filteredData = await getAllApplicationsByFilters(page, filters);
 
   return (
-    <div className="flex flex-col justify-start items-start ml-5 md:ml-7 w-[88vw] md:w-[68vw] xl:w-[80vw] ">
-      <h1 className="text-2xl font-semibold mb-4  border-b p-1 w-full  ">
-        Applications On {programDetails?.program_title_en}
+    <div className="flex flex-col justify-start items-start ml-5 md:ml-7 w-[88vw] md:w-[68vw] xl:w-[80vw]">
+      <h1 className="text-2xl font-semibold mb-4 border-b p-1 w-full">
+        Applications On {programDetails.program_title_en}
       </h1>
+
       <ApplicationsFilter
         initialLocation={searchParamsData.location ?? ""}
         initialGender={searchParamsData.gender ?? null}
@@ -60,24 +69,22 @@ async function page({ params, searchParams }: Props) {
           </CardContent>
         </Card>
       ) : (
-        <>
-          <ApplicationsDataTable
-            columns={ApplicationColumns}
-            data={filteredData.data}
-            routeName="applicationById"
-            deleteAction={deleteApplicationAction}
-            totalPages={filteredData.totalPages}
-            programId={id}
-            location={searchParamsData.location ?? null}
-            gender={searchParamsData.gender ?? null}
-            minAge={searchParamsData.minAge ?? undefined}
-            maxAge={searchParamsData.maxAge ?? undefined}
-            applicationId={searchParamsData.applicationId ?? null}
-          />
-        </>
+        <ApplicationsDataTable
+          columns={ApplicationColumns}
+          data={filteredData.data}
+          routeName="applicationById"
+          deleteAction={deleteApplicationAction}
+          totalPages={filteredData.totalPages}
+          programId={id}
+          location={searchParamsData.location ?? null}
+          gender={searchParamsData.gender ?? null}
+          minAge={searchParamsData.minAge ?? undefined}
+          maxAge={searchParamsData.maxAge ?? undefined}
+          applicationId={searchParamsData.applicationId ?? null}
+        />
       )}
     </div>
   );
 }
 
-export default page;
+export default Page;

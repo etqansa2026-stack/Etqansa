@@ -1,16 +1,20 @@
-import EditMemberForm from "@/components/our_team/EditMemberForm"
+import EditMemberForm from "@/components/our_team/EditMemberForm";
 import { editMemberAction } from "../(actions)/editMemberAction";
 import { getMemberById } from "@/app/server/our_team/services";
-async function page(props: { params: Promise<{ id: string }> }) {
-  const params = await props.params;
-  const member = (await getMemberById(params.id));
-  console.log("dlfgkjkgfld[w ",member);
+import { notFound } from "next/navigation";
 
-  return (
-   <>
-   <EditMemberForm member={member.data}  action={editMemberAction}/>
-   </>
-  );
+async function Page(props: { params: Promise<{ id: string }> }) {
+  const { id } = await props.params;
+
+  const result = await getMemberById(id);
+
+  if (!result || !result.data) {
+    notFound();
+  }
+
+  const member = result.data;
+
+  return <EditMemberForm member={member} action={editMemberAction} />;
 }
 
-export default page;
+export default Page;

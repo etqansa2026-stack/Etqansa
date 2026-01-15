@@ -1,29 +1,25 @@
 import { getApplicationById } from "@/app/server/applications/services";
 import ApplicationDetailsClient from "@/components/aplications/ApplicationDetails";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
 export default async function Page({ params }: Props) {
-  const id = (await params).id;
+  const { id } = await params;
 
-  const applicationRes = (await getApplicationById(id));
-  const application = applicationRes?.data ?? null;
+  const result = await getApplicationById(id);
 
-  if (!application) {
-    return (
-      <div className="p-6">
-        <h2 className="text-lg font-semibold">Application not found</h2>
-      </div>
-    );
+  if (!result || !result.data) {
+    notFound();
   }
+
+  const application = result.data;
 
   return (
     <div className="p-6">
-      <ApplicationDetailsClient
-        applicationDetails={application}
-      />
+      <ApplicationDetailsClient applicationDetails={application} />
     </div>
   );
 }

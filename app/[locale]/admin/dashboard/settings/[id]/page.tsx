@@ -1,18 +1,24 @@
-
 import { getSettingById } from "@/app/server/settings/services";
 import { editSettingAction } from "../(fetch)/editSetting";
 import EditSettingForm from "@/components/settings/editSettingForm";
+import { notFound } from "next/navigation";
 
 async function Page(prop: { params: Promise<{ id: string }> }) {
-  const params = await prop.params;
-  const setting = await getSettingById(params.id);
+  const { id } = await prop.params;
+
+  const result = await getSettingById(id);
+
+  // ❌ Stop rendering if setting doesn't exist
+  if (!result ) {
+    notFound();
+  }
+
+  const setting = result;
 
   return (
-    
-
-      <main>
-        <EditSettingForm setting={setting!} action={editSettingAction} />
-      </main>
+    <main>
+      <EditSettingForm setting={setting} action={editSettingAction} />
+    </main>
   );
 }
 
