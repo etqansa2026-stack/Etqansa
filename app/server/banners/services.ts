@@ -172,3 +172,6 @@ export const getAllBannersByLocale = (locale: Locale) =>
     [`all-banners-by-locale-${locale}`],
     { tags: ["banners"], revalidate: 3600 }
   );
+
+
+  
