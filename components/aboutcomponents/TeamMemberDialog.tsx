@@ -78,6 +78,7 @@ export default function TeamMemberDialog({
                   width={160}
                   height={160}
                   className="w-20 h-20 rounded-full object-contain border-2 border-[#6ab742] shadow-sm shrink-0"
+                  unoptimized
                 />
               </div>
 

@@ -61,6 +61,7 @@ export default function LifeHero({ isAr }: { isAr: boolean }) {
           fill 
           className="object-contain"
           priority 
+          unoptimized
         />
       </div>
 

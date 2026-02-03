@@ -33,6 +33,7 @@ export default function TechnicalTeamMemberCard({ data, locale }: Props) {
             width={96}
             height={96}
             className="w-24 h-24 object-cover rounded-full"
+            unoptimized
           />
         </div>
 

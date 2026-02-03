@@ -145,6 +145,7 @@ export default function ImageUploader({
           alt="Uploaded Image"
           fill
           className="rounded-lg object-cover"
+          unoptimized
         />
         <button
           onClick={handleDelete}

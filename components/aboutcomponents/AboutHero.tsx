@@ -56,6 +56,7 @@ export default function AboutHero({ isAr }: { isAr: boolean }) {
           fill
           className="object-contain"
           priority // تحميل مسبق بدون blur
+          unoptimized
         />
       </div>
     </section>

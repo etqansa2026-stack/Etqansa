@@ -38,6 +38,7 @@ console.log("datre: ",data);
             width={160}
             height={160}
             className="w-36 h-36 rounded-full object-contain shadow-sm shrink-0"
+            unoptimized
           />{" "}
         </div>
 

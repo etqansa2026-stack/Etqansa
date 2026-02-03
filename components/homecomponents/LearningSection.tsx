@@ -97,6 +97,7 @@ export default function LearningSection({ locale }: { locale: Locale }) {
               alt={isAr ? "مبادرة إتقان" : "Itqan Initiative"}
               fill
               className="object-cover"
+              unoptimized
             />
           </div>
         </div>

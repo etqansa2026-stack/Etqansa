@@ -55,6 +55,7 @@ export default function Footer({ locale = "en" }: Props) {
               width={80}
               height={60}
               className="object-contain"
+              unoptimized
             />
           </Link>
           <p className="mt-6 text-lg leading-7">

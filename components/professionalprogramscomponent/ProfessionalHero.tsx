@@ -64,6 +64,7 @@ export default function ProfessionalHero({ isAr }: { isAr: boolean }) {
           fill
           className="object-contain"
           priority
+          unoptimized
         />
       </div>
 

@@ -118,6 +118,7 @@ export default function AddBannerForm({ action }: Props) {
                 initialImageUrl={watch("image")}
                 onUploadComplete={handleUploadComplete}
                 onUploadError={handleUploadError}
+                
               />
               {errors.image && (
                 <p className={`mt-1 text-xs text-red-600 `}>

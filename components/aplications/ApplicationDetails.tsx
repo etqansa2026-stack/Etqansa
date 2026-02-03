@@ -2,34 +2,31 @@
 
 import React, { useMemo } from "react";
 import Image from "next/image";
-import {  Phone, ClipboardCopy,ArrowBigLeft  } from "lucide-react";
+import { Phone, ClipboardCopy, ArrowBigLeft } from "lucide-react";
 import { toast } from "sonner";
 import { NewProgram } from "@/types";
 import { useRouter } from "next/navigation";
 
-
-
 type Application = {
   id?: string;
   name: string;
-  gender: "male" | "female" ;
+  gender: "male" | "female";
   email: string;
   phone_number: string;
   location: string;
   education_level: string;
   major: string;
-  date_of_birth: Date |null;
-  created_at: Date |null;
-  programs:NewProgram |null 
+  date_of_birth: Date | null;
+  created_at: Date | null;
+  programs: NewProgram | null;
 };
 
 export default function ApplicationDetailsClient({
   applicationDetails,
-  
 }: {
   applicationDetails: Application;
 }) {
-  const router= useRouter()
+  const router = useRouter();
   const email = applicationDetails.email ?? "";
   const phone = applicationDetails.phone_number ?? "";
   const fullName = applicationDetails.name ?? "Unnamed Applicant";
@@ -45,16 +42,19 @@ export default function ApplicationDetailsClient({
 
   function copyToClipboard(text: string, label = "Copied") {
     navigator.clipboard.writeText(text).then(() => {
-      toast?.success ? toast.success(`${label}: ${text}`) : alert(`${label}: ${text}`);
+      toast?.success
+        ? toast.success(`${label}: ${text}`)
+        : alert(`${label}: ${text}`);
     });
   }
-
 
   return (
     <div className="flex flex-col  overflow-hidden bg-gray-50">
       {/* Header */}
       <header className="flex flex-col lg:flex-row items-start justify-between gap-3 lg:gap-0 lg:px-6 pb-4 px-0 bg-white shadow-md z-10 flex-none">
-        <h1 className="text-lg lg:text-2xl font-semibold">{applicationDetails?.programs?.program_title_en ?? "Program"}</h1>
+        <h1 className="text-lg lg:text-2xl font-semibold">
+          {applicationDetails?.programs?.program_title_en ?? "Program"}
+        </h1>
         <div className="flex items-center gap-3">
           <button
             onClick={() => copyToClipboard(email, "Email copied")}
@@ -78,7 +78,13 @@ export default function ApplicationDetailsClient({
           <div className="bg-white rounded-xl shadow-sm overflow-hidden ">
             <div className="relative w-full h-96 bg-gray-100 flex items-center justify-center">
               {applicationDetails?.programs?.image ? (
-                <Image src={applicationDetails?.programs?.image} alt={applicationDetails?.programs?.program_title_en} fill className="object-cover" />
+                <Image
+                  src={applicationDetails?.programs?.image}
+                  alt={applicationDetails?.programs?.program_title_en}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
               ) : (
                 <div className="text-gray-400">No Image</div>
               )}
@@ -87,9 +93,10 @@ export default function ApplicationDetailsClient({
               <p className="text-sm text-gray-500">
                 {applicationDetails.programs?.program_type === "life_programs"
                   ? "Life Program"
-                  : applicationDetails.programs?.program_type === "professional_programs"
-                  ? "Professional Program"
-                  : "Program Type"}
+                  : applicationDetails.programs?.program_type ===
+                      "professional_programs"
+                    ? "Professional Program"
+                    : "Program Type"}
               </p>
             </div>
           </div>
@@ -99,21 +106,46 @@ export default function ApplicationDetailsClient({
         <main className="flex-1 flex flex-col gap-4 overflow-auto">
           <div className="bg-white lg:p-6 p-2 rounded-xl shadow-sm flex flex-col gap-4">
             <h2 className="text-xl font-semibold">{fullName}</h2>
-            <p className="text-gray-500 text-sm">Applied to: {applicationDetails.programs?.program_title_en ?? "-"}</p>
+            <p className="text-gray-500 text-sm">
+              Applied to: {applicationDetails.programs?.program_title_en ?? "-"}
+            </p>
             <p className="text-gray-400 text-xs">
-              Submitted: {applicationDetails.created_at ? new Date(String(applicationDetails.created_at)).toLocaleString() : "-"}
+              Submitted:{" "}
+              {applicationDetails.created_at
+                ? new Date(
+                    String(applicationDetails.created_at),
+                  ).toLocaleString()
+                : "-"}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               <DetailRow label="Email" value={email || "-"} />
               <DetailRow label="Phone" value={phone || "-"} />
-              <DetailRow label="Gender" value={applicationDetails.gender || "-"} />
-              <DetailRow label="Location" value={applicationDetails.location || "-"} />
-              <DetailRow label="Major" value={applicationDetails.major || "-"} />
-              <DetailRow label="Education" value={applicationDetails.education_level || "-"} />
-              <DetailRow label="DOB" value={dob ? new Date(String(dob)).toLocaleDateString() : "-"} />
+              <DetailRow
+                label="Gender"
+                value={applicationDetails.gender || "-"}
+              />
+              <DetailRow
+                label="Location"
+                value={applicationDetails.location || "-"}
+              />
+              <DetailRow
+                label="Major"
+                value={applicationDetails.major || "-"}
+              />
+              <DetailRow
+                label="Education"
+                value={applicationDetails.education_level || "-"}
+              />
+              <DetailRow
+                label="DOB"
+                value={dob ? new Date(String(dob)).toLocaleDateString() : "-"}
+              />
               <DetailRow label="Age" value={age ?? "-"} />
-              <DetailRow label="Application ID" value={applicationDetails.id ?? "-"} />
+              <DetailRow
+                label="Application ID"
+                value={applicationDetails.id ?? "-"}
+              />
             </div>
 
             <div className="mt-4 flex flex-wrap gap-3">
@@ -124,8 +156,6 @@ export default function ApplicationDetailsClient({
                 <ArrowBigLeft className={`w-4 h-4 `} />
                 Back
               </button>
-
-              
             </div>
           </div>
         </main>
@@ -134,7 +164,13 @@ export default function ApplicationDetailsClient({
   );
 }
 
-function DetailRow({ label, value }: { label: string; value: React.ReactNode }) {
+function DetailRow({
+  label,
+  value,
+}: {
+  label: string;
+  value: React.ReactNode;
+}) {
   return (
     <div className="flex items-start gap-3">
       <div className="min-w-27.5 text-xs text-gray-500">{label}</div>

@@ -60,6 +60,7 @@ export default function Banner({ banners, locale }: BannerProps) {
                       loadedImages[index] ? "opacity-100" : "opacity-0"
                     }`}
                     onLoad={() => handleImageLoad(index)}
+                    unoptimized
                   />
 
                 

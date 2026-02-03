@@ -33,11 +33,13 @@ async function page() {
               >
                 <div className="w-44 h-44 rounded-full overflow-hidden flex items-center justify-center border shadow-md bg-gray-50 hover:shadow-lg">
                   <Image
+                  
                     src={program.image ?? DefaultImage}
                     alt={program.program_title_en}
                     width={50}
                     height={50}
                     className="w-full h-full object-contain"
+                    unoptimized
                   />
                   
                 </div>
@@ -76,6 +78,7 @@ async function page() {
                     width={50}
                     height={50}
                     className="w-full h-full object-contain"
+                    unoptimized
                   />
                 </div>
                 <div className="text-sm font-medium truncate max-w-36 mt-2">
