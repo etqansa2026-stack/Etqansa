@@ -9,6 +9,7 @@ import CTASection from '@/components/homecomponents/CTASection';
 import { getAllBannersByLocale } from "@/app/server/banners/services";
 import { getFeaturedProgramsByLocale } from "@/app/server/programs/services";
 import { getSettingByFieldName } from "@/app/server/settings/services";
+import KingSection from '@/components/homecomponents/KingSection';
 
 type Locale = 'en' | 'ar';
 
@@ -30,7 +31,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-white text-black">
       <Banner locale={locale} banners={banners} />
-
+      <KingSection locale={locale} />
       <StatsSection
         stats={{
           number_of_programs: number_of_programs?.value,
