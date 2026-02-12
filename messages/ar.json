@@ -6,7 +6,9 @@
     "programs": "البرامج",
     "program1": "البرامج المهنية",
     "program2": "البرامج الحياتية",
-    "button":"سجل الآن"
+    "button":"سجل الآن",
+    "terms&conditions":"الشروط و الاحكام"
+    
   },
     "ProgramsSection": {
     "title": "برامجنا",

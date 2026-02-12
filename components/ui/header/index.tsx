@@ -21,6 +21,7 @@ export default function Header() {
     { key: "home", href: "/" },
     { key: "missionvision", href: "/mission-vision" },
     { key: "about", href: "/about" },
+    {key:"terms&conditions",href: "/term-and-conditions"}
   ];
 
   const programItems = [
