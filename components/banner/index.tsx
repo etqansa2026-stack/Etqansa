@@ -50,7 +50,7 @@ export default function Banner({ banners, locale }: BannerProps) {
                   {!loadedImages[index] && (
                     <div className="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700 z-10" />
                   )}
-
+{/* text comment */}
                   <Image
                     src={banner.image || ""}
                     alt={banner.name || ""}
